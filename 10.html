@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+.class {
+	color: green;
+}
+
+.class div {
+	color: red;
+}
+
+.class1 {
+	color: yellow;
+}
+
+.class1 div {
+	color: purple;
+}
+
+.class2 > div {color: pink;
+}
+</style>
+</head>
+<body>
+	<div class="class">Parent A</div>
+
+	<div class="class">
+		Parent B
+		<div>children b</div>
+	</div>
+	
+	<div class="class1"></div>
+	<div>Parent C</div>
+	
+	<div class="class1">parent C
+		<div>Children C</div>
+		</div>
+		
+	<div class="class2">Parent D
+		<div>children D</div>
+		<div>children d</div>
+	</div>
+	
+</body>
+</html>

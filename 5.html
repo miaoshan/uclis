@@ -1,0 +1,58 @@
+<html>
+<head>
+	<style>
+		.class {
+			color: green;
+		}
+		.class div {
+			color: red;
+		}
+		.class2 {
+			color: yellow;
+		}
+		.class2 div {
+			color: purple;
+		}
+		.class2 > div {
+			color: purple;
+		}
+		
+		<!-- NOT NEEDED
+		div[class^="class"] {
+			color: gray;
+		}
+		-->
+	</style>
+</head>
+<body>
+	<div class="class">test parent
+		<div>test child</div>
+	</div>
+	
+	<div>test parent2
+		<div class="class">test child2</div>
+	</div>
+	
+	<div class="class2">
+		test parent 3
+		<div>test child 3</div>
+	</div>
+	
+	<div class="class3">
+		test parent 5
+		<div>test child 5</div>
+	</div>
+	
+	
+	<div class="class2">
+		test parent 3
+		<div>test child 3
+			<a href="">adsffdas
+				<div>test child 3
+					<div>test child3</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
