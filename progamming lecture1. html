@@ -1,0 +1,35 @@
+<head>
+<title>Work Out Your Retirement Age</title>
+<script type="text/javascript">
+<!-- /* Hide content from old browsers */
+
+function retirementProg() {
+        
+   var retirement_age = document.ageForm.retirementbox.value;
+   var age_of_user = document.ageForm.agebox.value;
+   var years_to_go = retirement_age - age_of_user; 
+   
+   alert('Thank you for using Rob\'s retirement calculator \n \n' +
+         'You typed your age as ' + age_of_user + ', \n' +
+         'and the retirement age as '+ retirement_age + ',\n' +
+         'so you will retire in ' + years_to_go + ' years.');     
+  }    
+// end hiding content from old browsers  -->
+</script>
+</head>
+
+<body>
+<center>
+<h1>Work Out Your Retirement Age!</h1>
+<form action="none" name="ageForm" 
+         onsubmit="retirementProg();return false;">
+Enter your age: 
+<input type="text" name="agebox" size="10" 
+          maxlength="40" /><br /><br />
+Enter the company's retirement age:
+<input type="text" name="retirementbox" size="10" 
+          maxlength="40" /><br /><br />
+<input type="submit" value="Run Program" />
+</form>
+</center>
+</body>
