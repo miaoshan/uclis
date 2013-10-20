@@ -1,0 +1,36 @@
+<html>
+<head>
+<script>
+	function pluralize() {
+
+		var number = document.pluralizeform.numberbox.value;
+		var noun = document.pluralizeform.nounbox.value;
+		var pluralizestring1 = number + "  " + noun + 's';
+		var pluralizestring2 = number + "   "+ noun;
+		var pluralizerstring3 = noun;
+
+		if (noun == "sheep") {
+			alert(pluralizerstring3);
+		} else if (number > 1) {
+			if (noun == "goose") {
+				alert("geese");
+			} else {
+				alert(pluralizestring1);
+			}
+
+		} else {
+			alert(pluralizestring2)
+		}
+	}
+</script>
+</head>
+<body>
+	<p>The Pluralizer</p>
+	<form action="none" name="pluralizeform"
+		onsubmit="pluralize(); return false;">
+		<P>Enter the number and pluralized form</P>
+		<input type="text" name="numberbox" size="3" maxlength="3"> <input
+			type="text" name="nounbox" size="3"> <input type="submit" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<script type="text/javascript">
+	function leapyearprog() {
+
+		var startyear = document.yearForm.startyearbox.value;
+		var endyear = document.yearForm.endyearbox.value;
+		var yearstring = 'Leap years from'+' ' + startyear +'  '+'to'+' '
+		+ endyear + '\n';
+
+		for ( counter = startyear; counter <= endyear; counter ++)
+			
+		{
+			if (counter % 4 == 0)
+				yearstring += counter+' '+'\n';
+		}
+
+		alert(yearstring);
+	}
+</script>
+</head>
+<body>
+	<p>Leap Year Calculator</p>
+	<form action="none" name="yearForm"
+		onsubmit="leapyearprog();return false;">
+		Enter the year for which you want a leap years list: <input type="text"
+			name="startyearbox" size="10" maxlength="40"><br> <br>
+		up to which year: <input type="text"
+			name="endyearbox" size="10" maxlength="40"><br></br> <input
+			type="submit" value="Run Program">
+	</form>
+</body>
+</html>

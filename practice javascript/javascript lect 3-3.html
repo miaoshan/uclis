@@ -1,0 +1,32 @@
+
+<html>
+<head>
+<script type="text/javascript">
+function timesTableProg() {
+    
+	   var tableNumber = document.tableForm.numberbox.value;
+	   var tableString = "Rob's Times Table Generator: \n ";
+	   var lengthoftable = document.tableForm.lengthoftable.value;
+	   for (var counter = 1 ; counter <=lengthoftable ; counter++) {
+	       tableString += tableNumber;
+	       tableString += ' x ';
+	       tableString += counter;
+	       tableString += ' = ';
+	       tableString += tableNumber * counter;
+	   }
+	   
+	   alert(tableString);     
+	}
+</script>
+</head>
+<body>
+<h1>Produce Your Own Times Table!</h1>
+<form action="none" name="tableForm" onsubmit="timesTableProg();return false;">
+Enter the number for which you want a times table: 
+<input type="text" name="numberbox" size="10" maxlength="40"><br><br>
+Enter the length you want the table to be:
+<input type="text" name="lengthoftable" size="10" maxlength="40"><br></br>
+<input type="submit" value="Run Program">
+</form>
+</body>
+</html>

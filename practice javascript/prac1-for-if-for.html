@@ -1,0 +1,111 @@
+<html>
+<head>
+<script type="text/javascript">
+	function greaterNum() {
+
+		var firstnumber = document.numberform.firstnumberbox.value;
+		var secondnumber = document.numberform.secondnumberbox.value;
+
+		if (firstnumber > secondnumber) {
+			alert(firstnumber);
+
+		} else {
+			alert(secondnumber);
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		<b>What number is bigger?</b>
+	</p>
+	<form action="none" name="numberform"
+		onsubmit="greaterNum(); return false;">
+
+		<p>Enter your two numbers</p>
+		<input type="text" name="firstnumberbox" size="3" maxlength="3">
+		<input type="text" name="secondnumberbox" size="3" maxlength="3">
+		<input type="submit" />
+
+	</form>
+</body>
+</html>
+
+
+<html>
+<head>
+<script>
+	function timesTableProg() {
+
+		var tableNumber = document.tableForm.numberbox.value;
+		var tableString = "Rob's Times Table Generator: \n";
+		var lengthoftable = document.tableForm.lengthoftable.value;
+		for ( var counter = 1; counter <= lengthoftable; counter++) {
+
+			tableString += tableNumber;
+			tableString += ' x ';
+			tableString += counter;
+			tableString += ' = ';
+			tableString += tableNumber * counter + '    ' + '\n';
+		}
+
+		alert(tableString);
+	}
+</script>
+</head>
+<body>
+	<p>Produce Your Own Times Table!</p>
+	<form action="none" name="tableForm"
+		onsubmit="timesTableProg();return false;">
+		Enter the number for which you want a times table: <input type="text"
+			name="numberbox" size="10" maxlength="40"><br>
+		<br> Enter the length you want the table to be: <input
+			type="text" name="lengthoftable" size="10" maxlength="40"><br></br>
+		<input type="submit" />
+	</form>
+</body>
+</html>
+
+<html>
+<head>
+<script>
+	function leapYearProg() {
+
+		var startingYear = Number(document.yearForm.startingYearBox.value);
+		var endingYear = Number(document.yearForm.endingYearBox.value);
+		var yearString = "leap years from" +' '+ startingYear +' '+ "to"+' '+ endingYear
+				+ "\n";
+		var startingYear2;
+		for ( var counter1 = startingYear; counter1 <= startingYear + 3; counter1++) {
+			if (counter1 % 4 == 0) {
+				startingYear2 = counter1;
+			}
+		}
+
+		for ( var counter = startingYear2; counter <= endingYear; counter += 4) {
+			yearString += counter+'  '+ '\n';
+		}
+
+		alert(yearString);
+	}
+</script>
+</head>
+<body>
+	<p>
+		<b>Leap Year List</b>
+	</p>
+	<form action="none" name="yearForm"
+		onsubmit="leapYearProg(); return false;">
+		From the year you want to list the leap year: <input type="text"
+			name="startingYearBox" size="5" maxlength="10"><br></br> up
+		to which year: <input type="text" name="endingYearBox" size="5"
+			maxlength="10">
+		<p>
+			<input type="submit" />
+		</p>
+	</form>
+</body>
+</html>
+
+
+

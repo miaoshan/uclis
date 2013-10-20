@@ -1,0 +1,38 @@
+<html>
+<head>
+<script type="text/javascript">
+
+function luckynumberprog(){
+	
+	   var firstluckynumber = 100;
+	   var secondluckynumber = 120;
+	   var firstinput= document.luckyform.firstnumberbox.value;
+	   var secondinput= document.luckyform.secondnumberbox.value;
+	   if ((firstinput==firstluckynumber && secondinput==secondluckynumber)||
+			(secondinput==firstluckynumber && firstinput==secondluckynumber))   
+			   {
+		   alert('Both lucky numbers! \n \n You have won 100!!');
+	   }
+	   else if (firstinput==firstluckynumber || secondinput==secondluckynumber || firstinput==secondluckynumber 
+			   || secondinput==firstluckynumber){
+		   alert('One lucky number!\n \n You\'ve won £10!');
+	   }
+	   else{
+		   alert('Better luck next time');
+	   }
+}
+</script>
+</head>
+<body>
+<p><b><font size=5 color="#FF00FF">Your chance to win 100!!</font></b></p>
+<p><b><font size=2 color="#FF0000">If you choose the lucky number you win 100!</font></b></p>
+<form action="none" name="luckyform" onsubmit="luckynumberprog(); return false;">
+<b>Enter your choice:</b>
+<input type="text" name="firstnumberbox" size=3 maxlength="3">
+<input type="text" name="secondnumberbox" size=3 maxlength="3">
+<br>
+<br>
+<input type="submit" value="GO!">
+</form>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html>
+<head>
+<script type="text/javascript">
+	function greaterNum() {
+
+		var firstnumber = Number(document.numberform.firstnumberbox.value);
+		var secondnumber = Number(document.numberform.secondnumberbox.value);
+
+		if (firstnumber > secondnumber) {
+			alert(typeof (document.numberform.firstnumberbox.value));
+			alert(typeof (firstnumber));
+			alert(firstnumber + ">" + secondnumber);
+
+		} else {
+			alert(secondnumber + ">" + firstnumber);
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		<b>What number is bigger?</b>
+	</p>
+	<form action="none" name="numberform"
+		onsubmit="greaterNum(); return false;">
+
+		<p>Enter your two numbers</p>
+		<input type="text" name="firstnumberbox" size="3" maxlength="3">
+		<input type="text" name="secondnumberbox" size="3" maxlength="3">
+		<input type="submit" />
+
+	</form>
+</body>
+</html>
+
+
+<html>
+<head>
+<script type="text/javascript">
+	function helloworld() {
+		var languagecode = document.languageform.languagebox.value;
+
+		if (languagecode !== "en") {
+			alert("Hello, World");
+		}
+		else{
+			alert("Hello, World");
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="none" name="languageform"
+		onsubmit="helloworld(); return false;">
+
+		<p>The World Translator</p>
+		<input type="text" name="languagebox" size="3"> <input
+			type="submit" />
+	</form>
+</body>
+</html>
+
+
+
+
+<html>
+<head>
+<script>
+ function assigngrade(){
+	  var score=document.scoreform.scorebox.value;
+      if (score>=80){
+    	  alert("A");
+    	  }
+      else if ((score<80) && (score>=70)){
+    	  alert("B");
+      	}
+      else if ((score<70) && (score>=60)){
+    	  alert("C");
+      }
+    else if ((score<60) && (score>=50)){
+    	alert("D");
+      }
+    else{
+    	alert("F")
+    	}
+ }
+</script>
+</head>
+<body>
+	<form action="none" name="scoreform"
+		onsubmit="assigngrade(); return false;">
+		<p>The Grade Assigner</p>
+		<input type="text" name="scorebox" size="3"> <input
+			type="submit" />
+	</form>
+</body>
+</html>
+
+<html>
+<head>
+<script>
+	function pluralize() {
+
+		var number = document.pluralizeform.numberbox.value;
+		var noun = document.pluralizeform.nounbox.value;
+		var pluralizestring = number + noun;
+
+		if (number > 1) {
+			alert(pluralizestring + "s");
+		} else {
+			alert(pluralizestring);
+		}
+	}
+</script>
+</head>
+<body>
+	<p>The Pluralizer</p>
+	<form action="none" name="pluralizeform"
+		onsubmit="pluralize(); return false;">
+		<P>Enter the number and pluralized form</P>
+		<input type="text" name="numberbox" size="3" maxlength="3"> <input
+			type="text" name="nounbox" size="3"> <input type="submit" />
+	</form>
+</body>
+</html>
+
+
+
+
+<html>
+<head>
+<script>
+if(confirm("Click a button:")) {
+    alert("You clicked OK.");
+}
+else {
+    alert("You clicked Cancel.")
+}
+</script>
+</head>
+<body>
+</body>
+</html>

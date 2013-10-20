@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript">
+
+function luckynumberprog(){
+	
+	   var luckynumber = 100;
+	   var input= document.luckyform.numberbox.value;
+	   if (input==luckynumber){
+		   alert(input + 'is the lucky number! \n \n You have won 100!!');
+	   }
+	   else {
+		   alert('Better luck next time.');
+	   }
+}
+</script>
+</head>
+<body>
+<p><b><font size=5 color="#FF00FF">Your chance to win 100!!</font></b></p>
+<p><b><font size=2 color="#FF0000">If you choose the lucky number you win 100!</font></b></p>
+<form action="none" name="luckyform" onsubmit="luckynumberprog(); return false;">
+<b>Enter your choice:</b>
+<input type="text" name="numberbox" size=3 maxlength="3">
+<br>
+<br>
+<input type="submit" value="GO!">
+</form>
+</body>
+</html>
