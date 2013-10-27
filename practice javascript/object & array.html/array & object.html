@@ -1,0 +1,107 @@
+
+<html>
+<head>
+<script>
+
+var employeeList = new Array();
+ function  addEmployee(){
+	 var employeeDetail = new Object();
+	 var employeeDetail.name = document.employeeForm.employeeNameBox.value;
+	 var employeeDetail.salary = document.employeeForm.employeeSalaryBox.value;
+	  
+	  employeeList.push(employeeDetail);
+ }
+  function displayemployee(){
+	  
+	  var content;
+	  for (var i=0; i<employeeList.length; i++){
+		  
+		  
+	  }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var employeeList = new Array();
+
+function addEmployee(){
+	
+	var index = employeeList.length;
+	employeeList[index] = new Object;
+	employeeList[index].name = document.employeeForm.namebox.value;
+	employeeList[index].salary = document.employeeForm.salarybox.value;
+ 	
+}
+
+function displayEmployees(){
+	
+	var message;
+	for (var i = 0; i < employeeList.length; i++){
+		message += employeeList[i].name;
+		message += 'salary is' + employeeList[i].salary += '.\n';
+		
+	}
+	alert(message);
+	
+}
+
+</script>
+</head>
+<body>
+<form action="none" name="employeeForm" onsubmit="addEmployee(); return false;">
+Employee's name: <input type="text" name="namebox" size="10"><br></br>
+Employee's Salary: <input type="text" name="salarybox" size="10"><br></br> 
+<input type="submit" value="Add New Employee" /><br></br> 
+<a href="nowhere" onClick="displayEmployees(); return false;">Click here to display employees</a>
+</form>
+<form action="">
+<input type="radio" name="sex" checked="checked">Male<br></br>
+<input type="radio" name="sex" value="female">Female
+</form>
+
+<form>
+
+  <input type="radio" name="MyButtons" checked="checked" />First alternative<br />
+    <input type="radio" name="MyButtons" />Second alternative<br />
+    <input type="radio" name="MyButtons" />Third alternative<br />
+</form>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
