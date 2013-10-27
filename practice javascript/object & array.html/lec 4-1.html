@@ -4,7 +4,7 @@
 	var employeeList = new Array();
 
 	function addEmployee() {
-		var index = new Object ();
+		var index = new Object();
 		index.name = document.employeeForm.employeeNameBox.value;
 		index.salary = document.employeeForm.employeeSalaryBox.value;
 	
@@ -12,13 +12,11 @@
 		}
 
 	function displayEmployee() {
-		var content = "";
-		for ( var i = 0; i < employeeList.size; i++) {
+		var content="";
+		for ( var i = 0; i < employeeList.length; i++) {
 			
-			var obj = employeList[i];
-			var name = obj.name;
-			content += employeList[i].name;
-			content += "," + "salary:" + employeeList[i].salary;
+			content += employeeList[i].name;
+			content += "'s" +' ' + "salary is" + ' ' + employeeList[i].salary;
 			content += "." + "\n";
 		}
 
@@ -26,31 +24,25 @@
 	}
 	
 	 function displayNumber(){
-		 if (employeeList.size != 1){
-			 alert('There are currently' + employeeList.size +'employees.');
+		 if (employeeList.length != 1){
+			 alert('There are currently' + ' ' + employeeList.length + ' ' +'employees.');
 			 }
 		 else {
 			 alert('There is currently 1 employee.')
 		 }
 	 }
-	
-	
-	
-	
-	
-	
+		
 </script>
 </head>
 <body>
 	<h1>Add and Display Employees</h1>
-	<p>employee name</p>
 	<form action="none" name="employeeForm" onsubmit="addEmployee(); return false;">
 		Employee's name: <input type="text" name="employeeNameBox" size="10"><br></br>
 		Employee's Salary: <input type="text" name="employeeSalaryBox" size="10"><br></br> 
 		<input type="submit" value="Add New Employee" /><br></br> 
-		<a href="www.ucl.ac.uk/">Clicks here to display employees.</a><br></br> 
+		<a href="nowhere" onclick="displayEmployee();return false;">Click here to display employees</a><br></br>
+		<a href="nowhere" onclick="displayNumber(); return false;"> Click here to display number of employees</a>
 		
-
 	</form>
 </body>
 </html>
