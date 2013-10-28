@@ -4,11 +4,11 @@
 	var employeeList = new Array();
 
 	function addEmployee() {
-		var index = new Object();
-		index.name = document.employeeForm.employeeNameBox.value;
-		index.salary = document.employeeForm.employeeSalaryBox.value;
+		var employeedetail = new Object();
+		employeedetail.name = document.employeeForm.employeeNameBox.value;
+		employeedetail.salary = document.employeeForm.employeeSalaryBox.value;
 	
-		employeeList.push(index);
+		employeeList.push(employeedetail);
 		}
 
 	function displayEmployee() {

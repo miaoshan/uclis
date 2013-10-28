@@ -1,0 +1,83 @@
+
+<html>
+<head>
+<script>
+
+
+</script>
+</head>
+<body>
+<form>
+<input type="radio" name="sex" value="male">Male<br></br>
+<input type="radio" name="sex" value="female">Female
+</form>
+<form>
+<input type="radio" name="button1" checked="checked"> First button<br></br>
+<input type="radio" name="button2"> Second button<br></br>
+</form>
+
+</body>
+
+</html>
+
+<html>
+<head>
+<script>
+
+document.MyForm.MyButtons[0].checked
+would (initially) give a value of true, and the expressions
+
+    document.MyForm.MyButtons[1].checked
+    document.MyForm.MyButtons[2].checked
+would yield false.
+function check()
+{
+document.getElementById("red").checked=true
+}
+function uncheck()
+{
+document.getElementById("red").checked=false
+}
+</script>
+<body>
+
+<input type="radio" name="MyButtons" checked="checked" />First alternative<br />
+    <input type="radio" name="MyButtons" />Second alternative<br />
+    <input type="radio" name="MyButtons" />Third alternative<br />
+
+   
+</body>
+</head>
+</html>
+
+<html>
+<head>
+<script>
+function check()
+{
+document.getElementById("red").checked=true
+}
+function uncheck()
+{
+document.getElementById("red").checked=false
+}
+</script>
+</head>
+<body>
+
+<form>
+What color do you prefer?<br>
+<input type="radio" name="colors" id="red">Red<br>
+<input type="radio" name="colors" id="blue">Blue<br>
+<input type="radio" name="colors" id="green">Green
+</form>
+
+<button type="button" onclick="check()">Check "Red"</button>
+<button type="button" onclick="uncheck()">Uncheck "Red"</button>
+
+</body>
+</html>
+
+
+
+

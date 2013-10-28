@@ -4,15 +4,26 @@
 	var employeeList = new Array();
 
 	function addEmployee() {
-		var index = new Object();
-		index.name = document.employeeForm.employeeNameBox.value;
-		index.salary = document.employeeForm.employeeSalaryBox.value;
+		var employee = new Object();
+		employee.name = document.employeeForm.employeeNameBox.value;
+		employee.salary = document.employeeForm.employeeSalaryBox.value;
 	
-		employeeList.push(index);
+		document.employeeForm.employeeNameBox.value = "";
+		document.employeeForm.employeeSalaryBox.value = "";
+		if (employeeList.length >= 3){
+			alert ('sorry- no more than 3 employees.');
+		}
+		else {
+			alert ('add new employee.');
+			
+			employeeList.push(employee);
+		}
+		
 		}
 
 	function displayEmployee() {
 		var content="";
+		
 		for ( var i = 0; i < employeeList.length; i++) {
 			
 			content += employeeList[i].name;
