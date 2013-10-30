@@ -1,0 +1,110 @@
+<html>
+<head>
+
+<script>
+
+   function raiseMySalary(amount) {
+       this.salary += amount;
+       
+   }
+   
+  
+   
+   fred = new Object;
+   mary = new Object;
+   
+   fred.name = 'Fred';
+   fred.salary = 40000;
+   fred.promote = raiseMySalary;
+   fred.displaySalary = displaySalary;
+   
+   function
+
+   mary.name = 'Mary';
+   mary.salary = 45000;
+   mary.promote = raiseMySalary;
+   mary.displaySalary = displaySalary;
+   
+</script>
+</head>
+
+<body>
+<a href="nowhere" onClick="mary.promote(2000);return false;">
+Promote Mary</a><br /><br />
+<a href="nowhere" onClick="fred.promote(1500);return false;">
+Promote Fred</a><br /><br />
+<a href="nowhere" onClick="mary.promote(-2000);return false;">
+Demote Mary</a><br /><br />
+<a href="nowhere" onClick="fred.promote(-1500);return false;">
+Demote Fred</a><br /><br />
+</body>
+</html>
+
+<html>
+<head>
+<script>
+function promoteMe() {
+       this.salary += 1000;
+   }
+   
+   function displaySalary() {
+       var message = this.name;
+       message += '\'s salary is ';
+       message += this.salary + '.';
+       alert(message);
+   }
+   
+   fred = new Object;
+   mary = new Object;
+   
+   fred.name = 'Fred';
+   fred.salary = 40000;
+   fred.promote = promoteMe;
+   fred.displaySalary = displaySalary;
+   
+   mary.name = 'Mary';
+   mary.salary = 45000;
+   mary.promote = promoteMe;
+   mary.displaySalary = displaySalary;
+   
+</script>
+</head>
+
+<body>
+
+<a href="nowhere" onClick="mary.promote();return false;">Promote Mary</a><br /><br />
+
+</body>
+</html>
+
+
+<script>
+function printAverage() {
+    var count = 0, sum = 0, answer = 0;
+    for (count = 0; count < arguments.length; count++) {
+        sum += arguments[count];
+    }
+    answer = sum / arguments.length;
+    alert('The average is ' + answer);
+}
+		     
+printAverage(2,4,6,8);
+
+</script>
+
+<script>
+function sum(a,a){
+	
+	 if (a==0) {
+		 return;
+	 }
+	 else
+		return sum(a-1, a+b);
+	 }
+	 sum (3,0);
+}
+
+
+
+
+</script>

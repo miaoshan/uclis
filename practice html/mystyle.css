@@ -1,0 +1,32 @@
+<head>
+<style>
+
+h1,h3,h4,h5,p,ul {font-family:sans-serif;
+				  font-style:Oblique;}
+p{margin-left: 20px;
+  text-indent:20%;
+  text-align:center;}
+body{font-size:15px;
+	color:pink;}
+h1{color:red;
+	text-align:center;
+	text-transform:uppercase;}
+h2{font-family:Georgia;
+	font-style:Oblique;}
+p.changed {padding-left:10px;
+			border-left-width:thin;
+			color:red;}
+a.plain{text-decoration:none;
+		color:gray;}
+		
+a:hover {background-color:gray;
+		text-decoration:underline;}
+tb.change color{color:pink;
+			font-style:arial;
+			font-size:20px;}
+			
+			
+
+</style>
+<head>
+
