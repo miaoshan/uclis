@@ -1,0 +1,82 @@
+
+
+<html>
+<head>
+<script type="text/javascript">
+	function luckyNumberProg() {
+
+		var firstLuckyNumber = 3;
+		var secondLuckyNumber = 5;
+		var thirdLuckyNumber = 8;
+		var samllNumber;
+		var bigNumber;
+		var biggestNumber;
+		var input1 = Number(document.luckyForm.firstNumberBox.value);
+		var input2 = Number(document.luckyForm.secondNumberBox.value);
+		var input3 = Number(document.luckyForm.thirdNumberBox.value);
+		if (input1 == input2 || input1 == input3 || input2 == input3) {
+			alert('Error! Please enter again.');
+		} else if ((input1 == 3 || input1 == 5 || input1 == 8)
+				&& (input2 == 3 || input2 == 5 || input2 == 8)
+				&& (input3 == 3 || input3 == 5 || input3 == 8)) {
+			alert('Congratulations!\n \n You got all 3 numbers correct.\n \n You have won £1000!');
+		} else {
+			if (input1 > input2 && input1 > input3) {
+
+				biggestNumber = input1;
+
+				if (input2 > input3) {
+					samllNumber = input3, bigNumber = input2;
+				} else {
+					samllNumber = input2, bigNumber = input3;
+				}
+			}
+				if (input2 > input1 && input2 > input3) {
+
+					biggestNumber = input2;
+
+					if (input1 > input3) {
+						samllNumber = input3, bigNumber = input1;
+					} else {
+						samllNumber = input1, bigNumber = input3;
+					}
+				}
+
+					if (input3 > input2 && input3 > input1) {
+
+						biggestNumber = input3;
+
+						if (input2 > input1) {
+							samllNumber = input1, bigNumber = input2;
+						} else {
+							samllNumber = input2, bigNumber = input1;
+						}
+
+					}
+					alert('Better luck next time.Your numbers are:' + '\n'
+							+ ' ' + samllNumber + ',' + bigNumber + ','
+							+ biggestNumber + '.');
+				
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		<b><font size=5 color="#FF00FF">Your chance to win £1000!!</font></b>
+	</p>
+	<p>
+		<b><font size=2 color="#FF0000">Get three numbers right and
+				win £1000!</font></b>
+	</p>
+	<form action="none" name="luckyForm"
+		onsubmit="luckyNumberProg(); return false;">
+		<b>Enter your three numbers:</b> <input type="text"
+			name="firstNumberBox" size=3 maxlength="3"> <input
+			type="text" name="secondNumberBox" size=3 maxlength="3"> <input
+			type="text" name="thirdNumberBox" size=3 maxlength="3"> <br>
+		<br> <input type="submit" value="GO!">
+	</form>
+</body>
+</html>
