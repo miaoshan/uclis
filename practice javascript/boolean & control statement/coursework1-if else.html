@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<style type="text/css">
+body {
+	font-size: 16px;
+	text-align: center;
+	background-color: #F0F0F0;
+}
+</style>
+<script type="text/javascript">
+	var input1, input2, input3;
+	var firstLuckyNumber = 3;
+	var secondLuckyNumber = 5;
+	var thirdLuckyNumber = 8;
+
+	function swapInput1WithInput2() {
+		var temp = input1;
+		input1 = input2;
+		intput2 = temp;
+	}
+	
+	function swapInput2WithInput3() {
+		var temp = input2;
+		input2 = input3;
+		intput3 = temp;
+	}
+
+	/*
+		sorting input1,input2,input3 in ascending order.
+	 */
+	function sortNumbers() {
+		if(input1>input2) {
+			swapInput1WithInput2();
+		}
+		if(input2>input3) {
+			swapInput2WithInput3();
+		}
+		if(input1>input2) {
+			swapInput1WithInput2();
+		}
+	}
+
+	/*
+		checking if the input is valid from the following criteria
+		1. inputs should not be empty
+		2. inputs should be of type Number
+		3. inputs should not be of the same value (this is optional as 
+				it is assumed that user will not enter the same number)
+		4. inputs could be positive, negative, 0 or decimals
+	 */
+	function isInputValid() {
+		if (input1 == "" || input2 == "" || input3 == "") {
+			alert('Error! please enter all three numbers');
+		} else if (isNaN(input1) || isNaN(input2) || isNaN(input3)) {
+			alert('Error! please enter numbers only');
+			return false;
+		} else if (input1 == input2 || input1 == input3 || input2 == input3) {
+			alert('Error! all three numbers should be different, please enter again.');
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/* 
+		there are six permutations that the user has entered the lucky numbers
+		123
+		132
+		213
+		231
+		312
+		321
+	 */
+	function isWinningNumber() {
+		if ((input1 == firstLuckyNumber && input2 == secondLuckyNumber && input3 == thirdLuckyNumber)
+				|| (input1 == firstLuckyNumber && input2 == thirdLuckyNumber && input3 == secondLuckyNumber)
+				|| (input1 == secondLuckyNumber && input2 == firstLuckyNumber && input3 == thirdLuckyNumber)
+				|| (input1 == secondLuckyNumber && input2 == thirdLuckyNumber && input3 == firstLuckyNumber)
+				|| (input1 == thirdLuckyNumber && input2 == firstLuckyNumber && input3 == secondLuckyNumber)
+				|| (input1 == thirdLuckyNumber && input2 == secondLuckyNumber && input3 == firstLuckyNumber)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function initInputNumbers() {
+		input1 = Number(document.luckyForm.firstNumberBox.value);
+		input2 = Number(document.luckyForm.secondNumberBox.value);
+		input3 = Number(document.luckyForm.thirdNumberBox.value);
+	}
+
+	function luckyNumberProg() {
+		initInputNumbers();
+		if (isInputValid()) {
+			if (isWinningNumber()) {
+				alert('Congratulations!\n\n You got all 3 numbers correct.\n\n You have won £1000!');
+			} else {
+				sortNumbers();
+				alert('Better luck next time.Your numbers are:\n' + input1
+						+ ',' + input2 + ',' + input3 + '.');
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>Your chance to win £1000!!</h2>
+	<p>
+		<b>Get three numbers right and win £1000!</b>
+	</p>
+	<form action="none" name="luckyForm"
+		onsubmit="luckyNumberProg(); return false;">
+		<b>Enter your three numbers:</b> <input type="text"
+			name="firstNumberBox" size=3 maxlength="3"> <input
+			type="text" name="secondNumberBox" size=3 maxlength="3"> <input
+			type="text" name="thirdNumberBox" size=3 maxlength="3"> <br />
+		<input type="submit" value="GO!">
+	</form>
+</body>
+</html>
+
+

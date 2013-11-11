@@ -1,0 +1,136 @@
+<!--  
+* Your name: Miao Shan
+* The module code and title: INSTG018 Introduction to Programming & Querying
+* The lecturer's name: Dr Jagun Kwon
+* The assignment or part of assignment you are submitting: Assessed Coursework1
+ -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<style type="text/css">
+body {
+	font-size: 16px;
+	text-align: center;
+	background-color: #D3D3D3;
+}
+</style>
+<script type="text/javascript">
+	var inputs = new Array();
+	var luckyNumbers = [ 3, 5, 8 ];
+
+	function swap(array, x, y) {
+		var temp = array[x];
+		array[x] = array[y];
+		array[y] = temp;
+	}
+
+	/*
+		sorting inputs[0],inputs[1],inputs[2] in ascending order.
+	 */
+	function sortNumbers() {
+		if (inputs[0] > inputs[1]) {
+			swap(inputs, 0, 1);
+		}
+		if (inputs[1] > inputs[2]) {
+			swap(inputs, 1, 2);
+		}
+		if (inputs[0] > inputs[1]) {
+			swap(inputs, 0, 1);
+		}
+	}
+
+	/*
+		checking if the input is valid from the following criteria
+		1. inputs should be of type Number
+		2. inputs should not be of the same value (this is optional as 
+				it is assumed that user will not enter the same number)
+		3. inputs could be positive, 0, negative or decimals
+		4. empty inputs will be treated as 0 
+	 */
+	function isInputValid() {
+		if (isNaN(inputs[0]) || isNaN(inputs[1]) || isNaN(inputs[2])) {
+			alert('Error! please enter numbers only');
+			return false;
+		} else if (inputs[0] == inputs[1] || inputs[1] == inputs[2]
+				|| inputs[2] == inputs[0]) {
+			alert('Error! all three numbers should be different, please enter again.');
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/* 
+		remove the match number from array, so this means the inputs match winning numbers 
+		if the array is empty after looping.
+	 */
+	function isWinningNumber() {
+		var temp = inputs;
+		for ( var i = 0; i < luckyNumbers.length; i++) {
+			temp = containsAndRemove(temp, luckyNumbers[i]);
+		}
+		if (temp.length == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/*
+		since using built-in array functions are not allowed 
+		so created this function to remove the matching element and return new array.
+	 */
+	function containsAndRemove(array, value) {
+		var newArray = Array();
+		for ( var i = 0; i < array.length; i++) {
+			if (array[i] != value) {
+				newArray.push(array[i]);
+			}
+		}
+		return newArray;
+	}
+
+	function initInputNumbers() {
+		inputs = new Array();
+		for ( var i = 0; i < document.luckyForm.numberBox.length; i++) {
+			inputs.push(Number(document.luckyForm.numberBox[i].value));
+		}
+	}
+
+	function luckyNumberProg() {
+		initInputNumbers();
+		if (isInputValid()) {
+			if (isWinningNumber()) {
+				alert('Congratulations!\n\n You got all 3 numbers correct.\n\n You\'ve won £1000!');
+			} else {
+				sortNumbers();
+				var result = "Better luck next time.Your numbers are: ";
+				var delimiter = "";
+				for (i = 0; i < inputs.length; i++) {
+					result += delimiter + inputs[i];
+					delimiter = ",";
+				}
+				result += ".";
+				alert(result);
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>Your chance to win £1000!!</h2>
+	<p>
+		<b>Get three numbers right and win £1000!</b>
+	</p>
+	<form action="none" name="luckyForm"
+		onsubmit="luckyNumberProg(); return false;">
+		<b>Enter your three numbers:</b> 
+		<input type="text" name="numberBox" size=3 maxlength="3"> 
+		<input type="text" name="numberBox" size=3 maxlength="3"> 
+		<input type="text" name="numberBox" size=3 maxlength="3"> <br/> 
+		<input type="submit" value="GO!">
+	</form>
+</body>
+</html>
+
+

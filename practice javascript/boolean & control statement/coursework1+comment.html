@@ -1,0 +1,96 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<script type="text/javascript">
+	var input1, input2, input3, smallNumber, mediumNumber, bigNumber;
+	var firstLuckyNumber = 3;
+	var secondLuckyNumber = 5;
+	var thirdLuckyNumber = 8;
+	// set value to 
+	function compareNumber(n1, n2) {
+		if (n1 > n2) {
+			mediumNumber = n1, smallNumber = n2;
+		} else {
+			mediumNumber = n2, smallNumber = n1;
+		}
+	}
+	// set value 
+	
+	
+	function sortNumber() {
+		if (input1 > input2 && input1 > input3) {
+			bigNumber = input1;
+			compareNumber(input2, input3);
+		}
+		if (input2 > input1 && input2 > input3) {
+			bigNumber = input2;
+			compareNumber(input1, input3);
+		}
+		if (input3 > input2 && input3 > input1) {
+			bigNumber = input3;
+			compareNumber(input2, input1);
+		}
+	}
+
+	function isInputValid() {
+		if (isNaN(input1) || isNaN(input2) || isNaN(input3)) {
+			alert('Error! please enter numbers');
+			return false;
+		} else if (input1 < 0 || input2 < 0 || input3 < 0) {
+			alert('Error! please enter positive numbers');
+			return false;
+		} else if (input1 == input2 || input1 == input3 || input2 == input3) {
+			alert('Error! Please enter again.');
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+
+	function isWinningNumber() {
+		if ((input1 == firstLuckyNumber || input1 == secondLuckyNumber || input1 == thirdLuckyNumber)
+				&& (input2 == firstLuckyNumber || input2 == secondLuckyNumber || input2 == thirdLuckyNumber)
+				&& (input3 == firstLuckyNumber || input3 == secondLuckyNumber || input3 == thirdLuckyNumber)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	function luckyNumberProg() {
+		input1 = Number(document.luckyForm.firstNumberBox.value);
+		input2 = Number(document.luckyForm.secondNumberBox.value);
+		input3 = Number(document.luckyForm.thirdNumberBox.value);
+
+		if (isInputValid()) {
+			if (isWinningNumber()) {
+				alert('Congratulations!\n \n You got all 3 numbers correct.\n \n You have won £1000!');
+			} else {
+				sortNumber();
+				alert('Better luck next time.Your numbers are:' + '\n' + ' '
+						+ smallNumber + ',' + mediumNumber + ',' + bigNumber
+						+ '.');
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<p>
+		<b><font size=5 color="#FF00FF">Your chance to win £1000!!</font></b>
+	</p>
+	<p>
+		<b><font size=2 color="#FF0000">Get three numbers right and
+				win £1000!</font></b>
+	</p>
+	<form action="none" name="luckyForm"
+		onsubmit="luckyNumberProg(); return false;">
+		<b>Enter your three numbers:</b> <input type="text"
+			name="firstNumberBox" size=3 maxlength="3"> <input
+			type="text" name="secondNumberBox" size=3 maxlength="3"> <input
+			type="text" name="thirdNumberBox" size=3 maxlength="3"> <br>
+		<br> <input type="submit" value="GO!">
+	</form>
+</body>
+</html>
+

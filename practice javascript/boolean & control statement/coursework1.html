@@ -7,55 +7,6 @@
 	var secondLuckyNumber = 5;
 	var thirdLuckyNumber = 8;
 
-	function runtests() {
-		testCompareNumber();
-		testSortNumber();
-	}
-
-	function assert(condition) {
-		if (!condition)
-			alert("test failed");
-	}
-
-	function testCompareNumber() {
-		//prepare
-		var tempBig = bigNumber;
-		var tempSmall = smallNumber;
-		//test body
-		compareNumber(1, 2);
-		assert(bigNumber == 2);
-		assert(smallNumber == 1);
-		//restore
-		bigNumber = tempBig;
-		smallNumber = tempSmall;
-	}
-
-	function testSortNumber() {
-		//prepare
-		var tempBig = bigNumber;
-		var tempSmall = smallNumber;
-		var tempBiggest = biggestNumber;
-		var tempInput1 = input1;
-		var tempInput2 = input2;
-		var tempInput3 = input3;
-		input1 = 3;
-		input2 = 5;
-		input3 = 8;
-		//test body
-		sortNumber();
-		assert(bigNumber == input2);
-		assert(smallNumber == input1);
-		assert(biggestNumber == input3);
-		//restore
-		bigNumber = tmepBig;
-		smallNumber = tempSmall;
-		biggestNumber = tempBiggest;
-		input1 = tempInput1;
-		input2 = tempInput2;
-		input3 = tempInput3;
-
-	}
-
 	function compareNumber(n1, n2) {
 		if (n1 > n2) {
 			bigNumber = n1, smallNumber = n2;
@@ -98,7 +49,7 @@
 	}
 </script>
 </head>
-<body onLoad="runtests()">
+<body>
 	<p>
 		<b><font size=5 color="#FF00FF">Your chance to win £1000!!</font></b>
 	</p>

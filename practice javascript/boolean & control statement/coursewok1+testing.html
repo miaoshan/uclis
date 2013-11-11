@@ -29,32 +29,6 @@
 		smallNumber = tempSmall;
 	}
 	
-	function testSortNumber() {
-		//prepare
-		var tempBig = bigNumber;
-		var tempSmall = smallNumber;
-		var tempBiggest = biggestNumber;
-		var tempInput1 = input1;
-		var tempInput2 = input2;
-		var tempInput3 = input3;
-		input1 = 3;
-		input2 = 5;
-		input3 = 8;
-		//test body
-		sortNumber();
-		assert(bigNumber == input2);
-		assert(smallNumber == input1);
-		assert(biggestNumber == input3);
-		//restore
-		bigNumber = tmepBig;
-		smallNumber = tempSmall;
-		biggestNumber = tempBiggest;
-		input1 = tempInput1;
-		input2 = tempInput2;
-		input3 = tempInput3;
-		
-		
-	}
 	
 	function compareNumber(n1, n2) {
 		if (n1 > n2) {
@@ -78,11 +52,41 @@
 			compareNumber(input2, input1);
 		}
 	}
-
-	function luckyNumberProg() {
+	
+	function testSortNumber() {
+		//prepare
+		var tempBig = bigNumber;
+		var tempSmall = smallNumber;
+		var tempBiggest = biggestNumber;
+		var tempInput1 = input1;
+		var tempInput2 = input2;
+		var tempInput3 = input3;
+		input1 = 3;
+		input2 = 5;
+		input3 = 8;
+		//test body
+		sortNumber();
+		assert(bigNumber == input2);
+		assert(smallNumber == input1);
+		assert(biggestNumber == input3);
+		//restore
+		bigNumber = tempBig;
+		smallNumber = tempSmall;
+		biggestNumber = tempBiggest;
+		input1 = tempInput1;
+		input2 = tempInput2;
+		input3 = tempInput3;
+			
+	}
+	
+	function setInputValues() {
 		input1 = Number(document.luckyForm.firstNumberBox.value);
 		input2 = Number(document.luckyForm.secondNumberBox.value);
 		input3 = Number(document.luckyForm.thirdNumberBox.value);
+	}
+
+	function luckyNumberProg() {
+		setInputValues();
         
 		if (input1 == input2 || input1 == input3 || input2 == input3) {
 			alert('Error! Please enter again.');
@@ -95,6 +99,11 @@
 			alert('Better luck next time.Your numbers are:' + '\n' + ' '
 					+ smallNumber + ',' + bigNumber + ',' + biggestNumber + '.');
 		}
+		var result = "";
+		for(i=0;i<3;i++) {
+			result += ", "
+		}
+		
 	}
 
 

@@ -7,43 +7,44 @@
 		var employeedetail = new Object();
 		employeedetail.name = document.employeeForm.employeeNameBox.value;
 		employeedetail.salary = document.employeeForm.employeeSalaryBox.value;
-	
+
 		employeeList.push(employeedetail);
-		}
+	}
 
 	function displayEmployee() {
-		var content="";
+		var content = "";
 		for ( var i = 0; i < employeeList.length; i++) {
-			
+
 			content += employeeList[i].name;
-			content += "'s" +' ' + "salary is" + ' ' + employeeList[i].salary;
+			content += "'s" + ' ' + "salary is" + ' ' + employeeList[i].salary;
 			content += "." + "\n";
 		}
 
 		alert(content);
 	}
-	
-	 function displayNumber(){
-		 if (employeeList.length != 1){
-			 alert('There are currently' + ' ' + employeeList.length + ' ' +'employees.');
-			 }
-		 else {
-			 alert('There is currently 1 employee.')
-		 }
-	 }
-		
+
+	function displayNumber() {
+		if (employeeList.length != 1) {
+			alert('There are currently' + ' ' + employeeList.length + ' '
+					+ 'employees.');
+		} else {
+			alert('There is currently 1 employee.')
+		}
+	}
 </script>
 </head>
 <body>
 	<h1>Add and Display Employees</h1>
-	<form action="none" name="employeeForm" onsubmit="addEmployee(); return false;">
-		Employee's name: <input type="text" name="employeeNameBox" size="10"><br></br>
-		Employee's Salary: <input type="text" name="employeeSalaryBox" size="10"><br></br> 
+	<form action="none" name="employeeForm"
+		onsubmit="addEmployee(); return false;">
+		Employee's name: 
+		<input type="text" name="employeeNameBox" size="10"><br></br>
+		Employee's Salary: 
+		<input type="text" name="employeeSalaryBox" size="10"><br></br> 
 		<input type="submit" value="Add New Employee" /><br></br> 
-		<a href="nowhere" onclick="displayEmployee();return false;">Click here to display employees</a><br></br>
+		<a href="nowhere" onclick="displayEmployee();return false;">Click here to display employees</a><br></br> 
 		<a href="nowhere" onclick="displayNumber(); return false;"> Click here to display number of employees</a>
-		
-	</form>
+</form>
 </body>
 </html>
 
