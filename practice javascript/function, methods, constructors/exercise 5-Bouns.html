@@ -1,0 +1,67 @@
+
+<html>
+<head>
+<title>Second Promotion Example</title>
+<script>
+
+   function Employee(aName, aWage) {
+       this.name = aName;
+       this.salary = aWage;
+       this.promote = raiseMySalary;
+       this.displaySalary = displaySalary;
+       this.displayBonus = displayBonus;
+   }
+   
+   function raiseMySalary(amount) {
+       this.salary += amount;
+   }
+   
+   function displaySalary() {
+       var message = this.name;
+       message += '\'s salary is ';
+       message += this.salary + '.';
+       alert(message);
+   }
+   
+   function XmasBonus(wage) {
+       if (wage <= 40000) {
+           return (0.1 * wage);
+       } 
+       else {
+           return (0.2 * wage);    
+       }
+   }
+   
+   function displayBonus() {
+       var message = this.name;
+       message += '\'s Christmas Bonus is ';
+       message += XmasBonus(this.salary) + '.';
+       alert(message);
+   }
+   
+   
+   fred = new Employee('Fred', 40000);
+   mary = new Employee('Mary', 45000);
+   
+</script>
+</head>
+<body>
+<a href="nowhere" onclick="mary.promote(2000);return false;">
+<font size="+2">Promote Mary</font></a><br /><br />
+<a href="nowhere" onclick="fred.promote(1500);return false;">
+<font size="+2">Promote Fred</font></a><br /><br />
+<a href="nowhere" onclick="mary.promote(-2000);return false;">
+<font size="+2">Demote Mary</font></a><br /><br />
+<a href="nowhere" onclick="fred.promote(-1500);return false;">
+<font size="+2">Demote Fred</font></a><br /><br />
+<a href="nowhere" onclick="fred.displaySalary();return false;">
+<font size="+2">Display Fred's Salary</font></a><br /><br />
+<a href="nowhere" onclick="mary.displaySalary();return false;">
+<font size="+2">Display Mary's Salary</font></a><br /><br />
+<a href="nowhere" onclick="fred.displayBonus();return false;">
+<font size="+2">Display Fred's Christmas Bonus</font></a><br /><br />
+<a href="nowhere" onclick="mary.displayBonus();return false;">
+<font size="+2">Display Mary's Christmas Bonus</font></a>
+</body>
+</html>
+
