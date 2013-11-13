@@ -4,10 +4,10 @@
 <title>Second Promotion Example</title>
 <script>
 
-   function Employee(aName, aWage, aage) {
+   function Employee(aName, aWage, aAge) {
        this.name = aName;
        this.salary = aWage;
-       this.age = aage;
+       this.age = aAge;
        this.promote = raiseMySalary;
        this.displaySalary = displaySalary;
        this.displayBonus = displayBonus;
@@ -67,3 +67,81 @@
 </body>
 </html>
 
+
+
+<html>
+
+<head>
+<script>
+
+   function Employee(aName, aWage, anAge) {
+       this.name = aName;
+       this.salary = aWage;
+       this.age = anAge;
+       this.promote = raiseMySalary;
+       this.displaySalary = displaySalary;
+       this.displayBonus = displayBonus;
+   }
+   
+   function raiseMySalary(amount) {
+       this.salary += amount;
+   }
+   
+   function displaySalary() {
+       var message = this.name;
+       message += '\'s salary is ';
+       message += this.salary + '.';
+       alert(message);
+   }
+   
+   function XmasBonus(wage,age) {
+       if (age <= 30) {
+           return 0;
+       }
+       else if (wage <= 40000) {
+           return (0.1 * wage);
+       } 
+       else {
+	   return (0.2 * wage);	   
+       }
+   }
+   
+   function displayBonus() {
+       var message = this.name;
+       message += '\'s Christmas Bonus is ';
+       message += XmasBonus(this.salary,this.age) + '.';
+       alert(message);
+   }
+   
+   fred = new Employee('Fred', 40000, 40);
+   mary = new Employee('Mary', 45000, 38);
+   jane = new Employee('Jane', 25000, 25);   
+</script>
+</head>
+<body>
+<a href="nowhere" onclick="mary.promote(2000);return false;">
+Promote Mary</a><br /><br />
+<a href="nowhere" onclick="fred.promote(1500);return false;">
+Promote Fred</a><br /><br />
+<a href="nowhere" onclick="jane.promote(1500);return false;">
+Promote Jane</a><br /><br />
+<a href="nowhere" onclick="mary.promote(-2000);return false;">
+Demote Mary</a><br /><br />
+<a href="nowhere" onclick="fred.promote(-1500);return false;">
+Demote Fred</a><br /><br />
+<a href="nowhere" onclick="jane.promote(-1500);return false;">
+Demote Jane</a><br /><br />
+<a href="nowhere" onclick="fred.displaySalary();return false;">
+Display Fred's Salary</a><br /><br />
+<a href="nowhere" onclick="mary.displaySalary();return false;">
+Display Mary's Salary</a><br /><br />
+<a href="nowhere" onclick="jane.displaySalary();return false;">
+Display Jane's Salary</a><br /><br />
+<a href="nowhere" onclick="fred.displayBonus();return false;">
+Display Fred's Christmas Bonus</a><br /><br />
+<a href="nowhere" onclick="mary.displayBonus();return false;">
+Display Mary's Christmas Bonus</a><br /><br />
+<a href="nowhere" onclick="jane.displayBonus();return false;">
+Display Jane's Christmas Bonus</a>
+</body>
+</html>

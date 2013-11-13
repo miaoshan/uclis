@@ -1,0 +1,27 @@
+<html>
+   <title>Solution to Exercise 4 Question 2</title>
+   <script type="text/javascript">
+   
+      function DisplayCentigrade() {
+          var ftemp = document.tForm.fahrBox.value;
+          var ctemp = asCentigrade(ftemp);       
+          alert(ftemp + ' Fahrenheit is ' + ctemp + ' Centigrade.');
+      }
+      
+      function asCentigrade(ftemp){
+    	  return (ftemp-32)*5/9;
+    	  
+      }
+   </script>
+
+   </head>
+   <body>
+   <h1>Temperature Converter</h1>
+   <form action="none" name="tForm" onsubmit="DisplayCentigrade();return false;">
+   <font size="+2">Enter temperature in Fahrenheit:</font> 
+   <input type="text" name="fahrBox" size="10" maxlength="40" /><br />
+   <input type="submit" value="Convert" />
+   </form>
+   </body>
+   </html>
+   
