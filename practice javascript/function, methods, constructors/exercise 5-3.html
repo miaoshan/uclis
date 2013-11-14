@@ -1,6 +1,6 @@
 <html>
-   <title>Exercise 4 Question 2</title>
-   <script type="text/javascript">
+<title>Exercise 4 Question 2</title>
+<script type="text/javascript">
    
       function displayCentigrade() {
           var ftemp = document.tForm.fahrBox.value;
@@ -14,23 +14,31 @@
       }
       
       function displayFahrenheit(){
+    	  var ctemp = document.cForm.centBox.value;
+    	  var ftemp = asFahrenheit(ctemp);
+    	  alert(ctemp + 'Centigrade is '+ ftemp + 'Fahrenheit.');
     	  
-    	  
+    	  }
+      function asFahrenheit(ctemp){
+    	  return (ctemp *9)/5 + 32;
     	  
       }
    </script>
 
-   </head>
-   <body>
-   <h1>Temperature Converter</h1>
-   <form action="none" name="tForm" onsubmit="displayCentigrade();return false;">
-   <font size="+2">Enter temperature in Fahrenheit:</font> 
-   <input type="text" name="fahrBox" size="10" maxlength="40" /><br />
-   <input type="submit" value="Convert" /><br />
-   <font size="+2">Enter temperature in Centigrade:</font> 
-   <input type="text" name="fahrBox" size="10" maxlength="40" /><br />
-   <input type="submit" value="Convert" />
-   </form>
-   </body>
-   </html>
-   
+</head>
+<body>
+	<h1>Temperature Converter</h1>
+	<form action="none" name="tForm"
+		onsubmit="displayCentigrade();return false;">
+		<font size="+2">Enter temperature in Fahrenheit:</font> <input
+			type="text" name="fahrBox" size="10" maxlength="40" /><br /> <input
+			type="submit" value="Convert" /><br />
+	</form>
+	<form action="none" name="cForm"
+		onsubmit="displayFahrenheit(); return false;">
+		<font size="+2">Enter temperature in Centigrade:</font> <input
+			type="text" name="centBox" size="10" maxlength="40" /><br /> <input
+			type="submit" value="Convert" />
+	</form>
+</body>
+</html>
