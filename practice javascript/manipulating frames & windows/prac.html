@@ -1,0 +1,73 @@
+
+<html>
+<head>
+<title>Employees in Frames - Form</title>
+<script>
+
+   var eList = new Array();
+   
+   parent.eDisplayFrame.location = 'Blank.html';
+   
+   function addEmployee() {
+       var index = eList.length;
+       if (index < 8) {
+           eList[index] = new Object;
+           eList[index].name = document.eForm.namebox.value;
+           eList[index].salary = document.eForm.salarybox.value;
+           displayEmployees();     
+       } 
+       else {
+           alert('Sorry - no more than 8 employees allowed.');
+       }
+   }
+   
+   function displayEmployees() {
+       with(parent.eDisplayFrame.document)
+       {
+           open();
+           writeln('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"');
+           writeln('        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+           writeln('<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">');
+           writeln('<head>');
+           write('<meta http-equiv="Content-Type" ');
+           writeln('content="text/html; charset=ISO-8859-1" />');
+           write('<title>Employee Display');
+           writeln('</title></head><body bgcolor="WHITE">');
+           writeln('<center><h1>List of Current Employees</h1>');
+           write('<table border="1"><tr><td>');
+           writeln('<b>NAME</b></td><td><b>SALARY</b></td></tr>');
+           for (var i = 0 ; i < eList.length ; i++) {
+               write('<tr><td>' + eList[i].name + '</td>');
+               writeln('<td>' + eList[i].salary + '</td></tr>'); 
+           }
+           writeln('</table></center></body></html>');
+           close();
+       }
+   }
+      
+</script>
+</head>
+
+<body>
+<h1>Add and Display Employees</h1>
+<form action="none" name="eForm">
+<font size="+2">Employee's name:</font> 
+<input type="text" name="namebox" size="10" maxlength="40" /><br /><br />
+<font size="+2">Employee's salary:</font> 
+<input type="text" name="salarybox" size="10" maxlength="40" /><br /><br />
+</form>
+<h3><a href="javascript:addEmployee()">Add New Employee</a></h3>
+</body>
+</html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>Employees in Frames</title>
+</head>
+<frameset cols="50%,50%">
+        <frame src="EmployeeFrames.html" name="eFormFrame" scrolling="auto" />
+        <frame src ="Blank.html" name="eDisplayFrame" scrolling="auto" />
+</frameset>
+
+</html>

@@ -4,22 +4,22 @@
    
       function displayCentigrade() {
           var ftemp = document.tForm.fahrBox.value;
-          var ctemp = asCentigrade(ftemp);       
+          var ctemp = convertCentigrade(ftemp);       
           alert(ftemp + ' Fahrenheit is ' + ctemp + ' Centigrade.');
       }
       
-      function asCentigrade(ftemp){
+      function convertCentigrade(ftemp){
     	  return (ftemp-32)*5/9;
     	  
       }
       
       function displayFahrenheit(){
     	  var ctemp = document.cForm.centBox.value;
-    	  var ftemp = asFahrenheit(ctemp);
+    	  var ftemp = convertFahrenheit(ctemp);
     	  alert(ctemp + 'Centigrade is '+ ftemp + 'Fahrenheit.');
     	  
     	  }
-      function asFahrenheit(ctemp){
+      function convertFahrenheit(ctemp){
     	  return (ctemp *9)/5 + 32;
     	  
       }

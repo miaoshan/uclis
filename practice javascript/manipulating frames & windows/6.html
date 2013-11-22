@@ -1,0 +1,76 @@
+
+<html>
+<head>
+<title>Create Your Own Homepage</title>
+<script>
+
+   displayWin = window.open('','hDisplay','resizable=yes,height=250,width=400');
+   
+   parent.
+
+   function createPage() {
+	   
+	   
+       alert('Clicking here should display an automatically generated homepage.');
+   }
+ 
+   
+
+</script>
+</head>
+
+<body onunload="displayWin.close();">
+
+<h1>Create Your Own Homepage</h1>
+<form action="none" name="hForm">
+  <font size="+1">Your name:</font> 
+  <input type="text" name="namebox" size="30" maxlength="40" /><br /><br />
+  <font size="+1">Address (1st line):</font> 
+  <input type="text" name="addressbox1" size="30" maxlength="40" /><br /><br />
+  <font size="+1">Address (2nd line):</font>
+  <input type="text" name="addressbox2" size="30" maxlength="40" /><br /><br />
+  <font size="+1">Address (3rd line):</font> 
+  <input type="text" name="addressbox3" size="30" maxlength="40" /><br /><br />
+  <font size="+1">Email:</font> 
+  <input type="text" name="emailbox" size="30" maxlength="40" /><br /><br />
+  <font size="+1">Background colour:&nbsp;</font>
+  <select name="background" size="8">
+    <option value="#FFFFFF" selected="selected">white</option>
+    <option value="#00FFFF">aqua</option>
+    <option value="#0000FF">blue</option>
+    <option value="#FF00FF">fuchsia</option>
+    <option value="#808080">grey</option>
+    <option value="#008000">green</option>
+    <option value="#00FF00">lime</option>
+    <option value="#800000">maroon</option>
+    <option value="#000080">navy</option>
+    <option value="#808000">olive</option>
+    <option value="#800080">purple</option>
+    <option value="#FF0000">red</option>
+    <option value="#C0C0C0">silver</option>
+    <option value="#008080">teal</option>
+    <option value="#FFFF00">yellow</option>
+  </select>
+  <font size="+1">&nbsp;&nbsp;&nbsp;&nbsp;Text colour:&nbsp;</font>
+  <select name="textColour" size="8">
+    <option value="#FFFFFF" selected="selected">white</option>
+    <option value="#00FFFF">aqua</option>
+    <option value="#0000FF">blue</option>
+    <option value="#FF00FF">fuchsia</option>
+    <option value="#808080">grey</option>
+    <option value="#008000">green</option>
+    <option value="#00FF00">lime</option>
+    <option value="#800000">maroon</option>
+    <option value="#000080">navy</option>
+    <option value="#808000">olive</option>
+    <option value="#800080">purple</option>
+    <option value="#FF0000">red</option>
+    <option value="#C0C0C0">silver</option>
+    <option value="#008080">teal</option>
+    <option value="#FFFF00">yellow</option>
+  </select>
+</form>
+<h3><a href="javascript:createPage();">Display homepage</a></h3>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+<html>
+<head>
+<title>Employees in Frames</title>
+<script>
+/* 
+
+ javaScript embedded in "EmployeeFrames.html".
+ everytime it is loaded, it in turn loads "Blank.html" into "eDisplayframe".
+ when addEmployee() is called, it in turn calls displayEmployees() which
+ generates a new document inside"eDisplayframe".
+ 
+ */
+ var eList = new Array();
+ 
+ parent.eDisplayFrame.location = 'Blank.html';
+ displayWin = window.open('employeeFrames/Blank.html', 'eDisplay', 'height=200, width=100, menubar=yes');
+ 
+ function addEmployee(){
+	  var index = eList.length;
+	  if (index < 8){
+		  eList[index] = new object;
+		  eList[index].name = doument.eForm.nameBox.value;
+		  eList[index].salary = document.eForm.salaryBox.value;
+		  displayEmployees();
+		  
+	  }
+	  else{
+		  alert ('Sorry, no more than 8 employees allowed.');
+	  }
+ }
+  
+ function displayEmployees(){
+	 displayWin.focus();
+	 with(parent.eDisplayFrame.document)
+	 {
+		 open();
+		 writeIn('<html>');
+		 writeIn('<head>');
+		 writeIn('<title>Employee Display</title>');
+		 writeIn('<h1>List of Current Employees</h1>');
+		 writeIn('<table border="1"><tr><td>');
+		 writeIn('<b>Name</b></td><td><b>Salary</b></td></tr>');
+		 for (var i=0; i<=eList.length; i++){
+			 writeIn('<tr><td>' +eList[i].name +'</td>');
+			 writeIn('<td>' +eList[i].salary +'</td>');
+		 }
+		 writeIn('</table>')
+		 close();
+	 }
+	 
+ }
+
+ /*
+ very-long-object-name.someProperty = somevalue;
+ very-long-object-name.someFunction(someArgument);
+ 
+ with(very-long-object-name){
+	 someproperty = someValue;
+	 someFunction(someArgument);
+}
+ */
+ 
+</script>
+</head>
+</html>
+<html>
+<head></head>
+<frameset cols="50%,50%">
+<frame src="EmployeeFrames.html" name="eFormFrame"/>
+<frame src="Blank.html" name="eDisplayFrame"/>
+</frameset>
+</html>
+
+<!-- the file "EmployeeFrames.html" is loaded into the frame"eFormFrame". 
+this contain a javaScript which generate and display an HTML document 
+in "eDisplayFrame"(eventually replacing"Blank.html")
+-->
+
+
+
+
+
+
+ 
+
+
