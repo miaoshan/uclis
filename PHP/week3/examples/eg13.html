@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <title>2012 Storm data</title>
+ <link rel="stylesheet" href="generic.css">
+ </head>
+<body>
+<h1>2012 Hurricane season</h1>
+
+<form action="eg13.php" action="get">
+<h2>Select columns to display</h2>
+<input type=checkbox name=stormname value=1>Storm name
+<br><input type=checkbox name=stormtype value=1>Storm type
+<br><input type=checkbox name=speed value=1>Maximum speed
+<br><input type=checkbox name=pressure value=1>Minimum pressure
+<h2>Filters</h2>
+Show storms with wind speed above
+<input type=text size=4 name=filterspeed>
+<br>Show storms with pressure below
+<input type=text size=4 name=filterpressure>
+
+
+
+<br><input type=submit value='Tabulate data'>
+
+</form>
+</body>
+</html>

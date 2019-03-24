@@ -1,0 +1,50 @@
+<html>
+<head>
+<script>
+var items= new Array();
+
+function addItems(){
+	var item= new Object();
+	var currenttime=new Date();
+	items.push(item);
+	item["mood"]=document.getElementById("mood").value;
+	item["text"]=document.getElementById("input").value;
+	item["time"]=currenttime;
+if(document.getElementById("checkbox").checked==true){
+	
+	item["checkbox"]=true;}
+else{
+	item["checkbox"]==false;
+}
+ displayItems();
+ clear();
+	
+}
+	
+function displayItems(){
+	
+	
+	
+}
+  
+
+</script>
+
+</head>
+<body>
+	<h1>to do list</h1>
+	moods
+	<select id="mood">
+		<option value="happy" id="happy">happy</option>
+		<option value="unhappy" id="unhappy">unhappy</option>
+		<option value="shy" id="shy">shy</option>
+		<option value="afraid" id="afraid">afraid</option>
+	</select>
+	<br> to do list
+	<input type="text" name="input" id="input">
+	<br> checkbox
+	<input type="checkbox" id="checkbox">
+	<br>
+	<button value="additem" id="additem" onclick="addItem()">add</button>
+</body>
+</html>

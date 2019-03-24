@@ -1,0 +1,64 @@
+<html>
+<head>
+
+
+<style>
+table.bottomBorder{
+
+border-collapse: collapse;}
+
+table.bottomBorder td, table.bottomBorder th{
+
+border-bottom: 1px solid pink;}
+
+table, th, td {
+border: 2px solid pink;}
+</style>
+
+
+
+<script>
+
+var myArray = new Array();
+    myArray[0] = 1;
+    myArray[1] = 2;
+    myArray[2] = 33;
+    myArray[3] = 4
+    myArray[4] = 5;
+    myArray[5] = 66;
+    myArray[6] = 7
+    myArray[7] = 9
+
+    var myTable= "<table><tr><td>Table Head 1</td>";
+    myTable+= "<td>Table Head 2</td>";
+    myTable+="<td>Table Head 3</td></tr>";
+
+
+  for (var i=0; i<8; i++) {
+    myTable+="<tr><td>Number " + i + " is:</td>";
+    myArray[i] = myArray[i].toFixed(3);
+    myTable+="<td>" + myArray[i] + "</td>";
+    myTable+="<td>" + myArray[i] + "</td></tr>";
+  }  
+   myTable+="</table>";
+
+ document.write( myTable);
+ 
+
+
+ </script>
+ </head>
+ <body>
+ <table>
+ <tr>
+ <th>h1</th>
+ <th>h2</th>
+ </tr>
+ <tr>
+ </tr>
+ 
+ </table>
+ 
+ 
+ </body>
+ </html>

@@ -1,0 +1,160 @@
+<html>
+<head>
+<style>
+table,th,td {
+	border: 1px solid gray;
+}
+</style>
+<script>
+	var input = new Object();
+
+	function clickEventBox(event) {
+
+		var itemId = event.target.id;
+		if (event.target.className == "validinput") {
+			if (itemId in input) {
+				editEvents(itemId);
+			} else {
+				displayInputBox(itemId);
+			}
+		}
+
+	}
+
+	function editEvents(id) {
+
+		var c = "<table>";
+
+		c += "<tr>";
+
+		c += "<td><input type='text' id='preevent'value="+ input[id]+"></td></tr>";
+
+		c += "<tr>";
+
+		c += "<td><button value='saveevent' id='saveevent' onclick=saveEvents('"
+				+ id + "')>Save event</button></td>";
+
+		c += "<td><button value='deleteevent' id='deleteevent' onclick=deleteEvents('"
+				+ id + "')>Delete event</button></td>";
+
+		c += "</tr>";
+
+		c += "</table>";
+		document.getElementById("display").innerHTML = c;
+
+	}
+
+	function saveEvents(id) {
+
+		input[id] = document.getElementById("preevent").value;
+
+		displayEvent(input);
+		
+		clear(); 
+	}
+
+	
+	
+	function deleteEvents(id) {
+		
+		 
+	 	delete input[id];
+		
+		document.getElementById(id).textContent="";
+		
+		clear();
+	
+	}
+
+	
+	
+	function displayInputBox(id) {
+
+		var a = "<table>";
+
+		a += "<tr>";
+
+		a += "<td><input type='text' id='addevent'></td></tr>";
+
+		a += "<tr>";
+		a += "<td><button value='createevent' id='createevent' onclick=createEvents('"
+				+ id + "')>Create event</button></td>";
+
+		a += "</tr>";
+
+		a += "</table>";
+		document.getElementById("display").innerHTML = a;
+	}
+
+	function clear() {
+
+		document.getElementById("display").innerHTML = "";
+	}
+
+	function createEvents(id) {
+
+		input[id] = document.getElementById("addevent").value;
+
+		displayEvent(input);
+
+		clear();
+	}
+
+	function displayEvent(input) {
+		for ( var i = 0; i < Object.keys(input).length; i++) {
+			var key = Object.keys(input)[i];
+			document.getElementById(key).textContent = input[key];
+
+		}
+	}
+</script>
+</head>
+<body>
+	<table onclick="clickEventBox(event)">
+		<tr>
+			<th>GMT+00</th>
+			<th>Sun 10/26</th>
+			<th>Mon 10/27</th>
+			<th>Tue 10/28</th>
+			<th>Wed 10/29</th>
+			<th>Thu 10/30</th>
+			<th>Fri 10/31</th>
+			<th>Sat 11/1</th>
+		</tr>
+		<tr>
+			<td>12am</td>
+			<td class="validinput" id="e1"></td>
+			<td class="validinput" id="e2"></td>
+			<td class="validinput" id="e3"></td>
+			<td class="validinput" id="e4"></td>
+			<td class="validinput" id="e5"></td>
+			<td class="validinput" id="e6"></td>
+			<td class="validinput" id="e7"></td>
+
+		</tr>
+		<tr>
+			<td>1pm</td>
+			<td class="validinput" id="e8"></td>
+			<td class="validinput" id="e9"></td>
+			<td class="validinput" id="e10"></td>
+			<td class="validinput" id="e11"></td>
+			<td class="validinput" id="e12"></td>
+			<td class="validinput" id="e13"></td>
+			<td class="validinput" id="e14"></td>
+
+		</tr>
+		<tr>
+			<td>2pm</td>
+			<td class="validinput" id="e15"></td>
+			<td class="validinput" id="e16"></td>
+			<td class="validinput" id="e17"></td>
+			<td class="validinput" id="e18"></td>
+			<td class="validinput" id="e19"></td>
+			<td class="validinput" id="e20"></td>
+			<td class="validinput" id="e21"></td>
+
+		</tr>
+	</table>
+	<div id="display"></div>
+</body>
+</html>

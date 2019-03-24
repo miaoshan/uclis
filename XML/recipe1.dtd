@@ -1,0 +1,34 @@
+<!-- recipes.dtd Example DTD for Recipes Exercise -->
+
+<!ELEMENT recipes (recipe+) >
+<!ELEMENT recipe (title, summary?, author+, source?, servings?, ingredients+, process, utensils*) >
+<!ELEMENT title (#PCDATA) >
+    <!ATTLIST title type (main-meal | starter | dessert | snack | cake) #REQUIRED
+                         technique CDATA #REQUIRED>
+ <!ELEMENT summary (#PCDATA | p)* >
+ <!ELEMENT author (first_name*, last_name) >
+ <!ELEMENT first_name (#PCDATA) >
+ <!ELEMENT last_name (#PCDATA) >
+ <!ELEMENT source (#PCDATA) >
+ <!ELEMENT servings (#PCDATA) >
+ <!ELEMENT ingredients (ingredient_name+) >
+ <!ATTLIST ingredients part CDATA #IMPLIED >
+ <!ELEMENT ingredient_name (#PCDATA | ingredient_amount | ingredient_quantity | ingredient_preparation)* >
+ <!ELEMENT ingredient_quantity (#PCDATA | ingredient_amount)* >
+ <!ELEMENT ingredient_amount (#PCDATA) >
+ <!ATTLIST ingredient_amount unit CDATA #IMPLIED >
+ <!ELEMENT ingredient_preparation (#PCDATA) >
+ <!ELEMENT process (#PCDATA | preparation | cooking | serving | p)* >
+ <!ATTLIST process timing CDATA #IMPLIED >
+ <!ELEMENT preparation (#PCDATA | p)* >
+ <!ATTLIST preparation timing CDATA #IMPLIED >
+ <!ELEMENT cooking (#PCDATA | oven_temp | p)* >
+ <!ATTLIST cooking timing CDATA #IMPLIED >
+ <!ELEMENT oven_temp (#PCDATA) >
+ <!ATTLIST oven_temp unit CDATA #IMPLIED >
+ <!ELEMENT serving (#PCDATA | p)* >
+ <!ATTLIST serving timing CDATA #IMPLIED >
+ <!ELEMENT utensils (#PCDATA | p)* >
+ <!ELEMENT p (#PCDATA) >
+ <!ELEMENT 
+ 

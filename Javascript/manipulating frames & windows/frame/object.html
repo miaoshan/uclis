@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<script type="text/javascript">
+function calc()
+{
+var total = 0;
+var course = 0;
+var nrOfLessons = 0;
+var vat = 0;
+
+course = Number(document.getElementById("course").value)
+nrOfLessons = Number(document.getElementById("nrOfLessons").value)
+//Number is a function; function's input type is string; input value=3; output type is Number, output value=3.
+//document is an object; getElementById("course")is a function; getElementById("course")'s output
+// is an object; getElementById("course"),this function(not it's output) belongs to document.
+//value is a porperty, belongs to getElementById()'s output. 
+
+
+
+total =(course * nrOfLessons)
+vat = total * 0.15
+total = total+ vat;
+document.getElementById('total').innerHTML = total;
+}
+
+
+</script>
+</head>
+<body>
+
+<input id="course" value="3">IG1308</input>
+<input id="nrOfLessons" value="9"></input> 
+<div id="total">jjjjj</div>
+<script> calc();</script>
+</body>
+</html>

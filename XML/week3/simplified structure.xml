@@ -1,0 +1,39 @@
+<recipe>
+<author>
+<first-name>Delia</first-name>
+<last-name>Smith</last-name>
+</author>
+<title>Fast-rosat Chicken with Lemon and Tarragon</title>
+<source>How to Cook Book Two</source>
+<source>The Delia Collection: Chicken.</source>
+<source url="...">Delia online</source>
+<introduction>text</introduction>
+<utensils>You will also need a solid-based, flameproof roasting tin 
+measuring 9x11 inches (23 x 28 cm), 2 inches (5cm) deep.</utensils>
+<ingredients>
+<!-- a list of ingredients -->
+<ingredient1>...</ingredient1>
+<ingredient2>...</ingredient2>
+<ingredient3>...</ingredient3>
+<ingredient4>...</ingredient4>
+</ingredients>
+<method>
+<preparation>
+<para>...</para>
+<para>...</para>
+</preparation>
+<cooking>
+<timing>
+<time>65 minutes</time>
+<oven-temp unit="gas mark">8</oven-temp>
+<oven-temp unit="fahrenheit">450</oven-temp>
+<oven-temp unit="centigrade">230</oven-temp>
+</timing>
+<para>...</para>
+<para>...</para>
+</cooking>
+<serving>
+<para>...</para>
+</serving>
+</method>
+</recipe>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<style>
+table,th,td {
+	border: 1px solid gray;
+}
+</style>
+<script>
+	var input = new Array();
+	function addEvent(e) {
+		displayInputBox();
+
+	}
+	function displayInputBox() {
+
+		var a = "<table>";
+
+		a += "<tr>";
+
+		a += "<td><input type='text' id='addtask'></td></tr>";
+
+		a += "<tr>";
+		a += "<td><button value='createevent' id='createevent' onclick='createEvent()'>Create event</button></td>";
+
+		a += "<td><button value='editevent' id='editevent' onclick='editEvent()'>Edit event</button></td>";
+		a += "</tr>";
+
+		a += "</table>";
+		document.getElementById("displayEvent").innerHTML = a;
+	}
+</script>
+</head>
+<body>
+	<table onclick="addEvent(event)">
+		<tr>
+			<th>Sun 10/26</th>
+			<th>Mon 10/27</th>
+			<th>Tue 10/28</th>
+			<th>Wed 10/29</th>
+			<th>Thu 10/30</th>
+			<th>Fri 10/31</th>
+			<th>Sat 11/1</th>
+		</tr>
+		<tr>
+			<td>12am</td>
+			<td id="e1"></td>
+			<td id="e2"></td>
+			<td id="e3"></td>
+			<td id="e4"></td>
+			<td id="e5"></td>
+			<td id="e6"></td>
+		</tr>
+		<tr>
+			<td>1pm</td>
+			<td id="e7"></td>
+			<td id="e8"></td>
+			<td id="e9"></td>
+			<td id="e10"></td>
+			<td id="e11"></td>
+			<td id="e12"></td>
+		</tr>
+		<tr>
+			<td>2pm</td>
+			<td id="e13"></td>
+			<td id="e14"></td>
+			<td id="e15"></td>
+			<td id="e16"></td>
+			<td id="e17"></td>
+			<td id="e18"></td>
+		</tr>
+
+
+	</table>
+	<div id="displayEvent"></div>
+</body>
+</html>

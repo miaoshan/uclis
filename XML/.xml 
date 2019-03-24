@@ -1,0 +1,58 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<recipe>
+<author>
+<first-name>Delia</first-name>
+<last-name>Smith</last-name>
+</author>
+<recipe-type type="main-meal"/>
+<title>Fast-roast Chicken with Lemon and Tarragon</title>
+<source>How to Cook Book Two</source>
+<source>The Delia Collection: Chicken.</source>
+<source url="">Delia Online</source>
+<introduction>Here is a revolution</introduction>
+<servings>4</servings>
+<technique type="roast"/>
+<utensils>
+You will also need a solid-based, flameproof roasting tin measuring 9 x 11 inches (23 x 28 cm), 2 inches (5 cm) deep.
+</utensils>
+<ingredients>
+<!--  a list of ingredients  -->
+<ingredient>
+<ingredient-name>French traditional free range chicken</ingredient-name>
+<ingredient-qty>
+<qty>1</qty>
+<ingredient-amnt unit="lb">3</ingredient-amnt>
+<ingredient-amnt unit="kg">1.35</ingredient-amnt>
+</ingredient-qty>
+</ingredient>
+<ingredient>
+<ingredient-name>small lemon</ingredient-name>
+<ingredient-qty>
+<qty>half</qty>
+</ingredient-qty>
+<ingredient-prep>thinly sliced and the slices halved</ingredient-prep>
+</ingredient>
+</ingredients>
+<method>
+<preparation>
+<timing>
+<time>1 hour</time>
+</timing>
+<para>Begin by taking the chicken from the fridge a</para>
+<para>Now make a garlic and herb butter</para>
+</preparation>
+<cooking>
+<timing>
+<time>65 minutes</time>
+<oven-temp unit="gas mark">8</oven-temp>
+<oven-temp unit="fahrenheit">450</oven-temp>
+<oven-temp unit="centigrade">230</oven-temp>
+</timing>
+<para>Now let it roast for 45 minutes</para>
+<para>Meanwhile, using a tablespoon,</para>
+</cooking>
+<serving>
+<para>Carve the chicken on to warm</para>
+</serving>
+</method>
+</recipe>

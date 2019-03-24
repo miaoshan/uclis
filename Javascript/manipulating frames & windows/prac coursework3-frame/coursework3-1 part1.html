@@ -1,0 +1,55 @@
+<html>
+<head>
+<script type="text/javascript">
+function startTime(){
+	
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+return h+":"+m+":"+s;
+}
+
+</script>
+<style>
+body { text-align:center;}
+</style>
+</head>
+<body onload="startTime()">
+<div id="txt"></div>
+
+<script type="text/javascript">startTime()</script>
+ <h4>Current Time: <span id="time" /></h4>
+<h1>Add and Display Tasks</h1>
+<p>Task:<input type ="text" name="taskbox" size=30 maxlength="20"><br>
+<p>Priority:<input type="radio" name="priority" value="high">High
+<input type="radio" name="priority" value="medium">Medium
+<input type="radio" name="priority" value="low">Low<br> 
+<h3><a href=" ">Add New Task</a></h3>
+<h3><a href=" ">Display All Tasks</a></h3>
+<h3><a href=" ">Display High Priority Tasks Only</a></h3>
+<script> startTime();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

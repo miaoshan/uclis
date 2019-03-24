@@ -1,0 +1,86 @@
+<html>
+<head>
+<script>
+	var a = new Array();
+	function addTask() {
+		a.push(document.getElementById("newtask").value);
+		displayTask1();
+		clear();
+	}
+
+	function displayTask1() {
+		var b = "<table>";
+		for ( var i = 0; i < a.length; i++) {
+			b += "<tr>";
+			b += "<td>" + a[i] + "</td>";
+			b += "<td><button value='edit task' id='edittask' onclick=editTask(" + i + ")>Edit</button></td>";
+			b += "<td><button value='delete task' id='deletetask' onclick=deleteTask("
+					+ i + ")>Delete</button></td>";
+			b += "</tr>";
+		}
+		b += "</table>";
+		document.getElementById("displaytask").innerHTML = b;
+
+	}
+
+	function clear() {
+		document.getElementById("newtask").value = "";
+	}
+
+	function editTask(i) {
+
+		displayTask2(i);
+
+	}
+
+	function deleteTask(i) {
+		a.splice(i, 1);
+		displayTask1();
+	}
+
+	function displayTask2(x) {
+		var b = "<table>";
+		for ( var i = 0; i < a.length; i++) {
+			b += "<tr>";
+			if (i == x) {
+				b += "<td><input type='text' id='pretask'value=" +a[i] + "></td>";
+				b += "<td><button value='save task' id='savetask' onclick='saveTask("
+						+ i + ")'>save</button></td>";
+			} else {
+				b += "<td>" + a[i] + "</td>";
+			}
+
+			b += "<td><button value='edit task' id='edittask' onclick='editTask("
+					+ i + ")'>Edit</button></td>";
+			b += "<td><button value='delete task' id='deletetask' onclick='deleteTask("
+					+ i + ")'>Delete</button></td>";
+
+			b += "</tr>";
+		}
+		b += "</table>";
+		document.getElementById("displaytask").innerHTML = b;
+	}
+
+	function saveTask(y) {
+		a[y] = document.getElementById("pretask").value;
+
+		displayTask1();
+	}
+</script>
+</head>
+
+<body>
+
+	<h2>To do list</h2>
+	<input type="text" name="todotask" id="newtask">
+	<button value="add task" id="addtask" onclick="addTask()">add</button>
+
+	<br>
+	<div id="displaytask"></div>
+
+
+
+
+
+</body>
+</html>

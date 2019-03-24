@@ -1,0 +1,181 @@
+<!--  
+* Your name: Miao Shan
+* The module code and title: INSTG018 Introduction to Programming & Querying
+* The lecturer's name: Dr Jagun Kwon
+* The assignment or part of assignment you are submitting: Assessed Coursework2
+ -->
+<html>
+<head>
+<style>
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	text-align: center;
+}
+
+#moodDisplay {
+	width: 100%;
+	text-align: center;
+}
+
+#moodInput {
+	width: 40%;
+}
+
+table td {
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.otm {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAA3NCSVQICAjb4U/gAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAnNQTFRF////AAAA/4AAMzMz/1UAJCQkKytAMzMzLzk5LDU1Ljc3SzwsLzU1LTI3LDU1LjU183YALzI2LTQ0LjQ3LTM2ODQyLzQ3LTU1NzU09XsAlFYYhVEe9HwAqV8U6HcD9XwAoFwX3HMGx2sMwmkN9YAA9H4A4HcF3ncG63oC6HkD9nwA9Jcg9Jgf9Jkf9YEI84EI8oAI8XoB8ZYf8JUg9blA87hA9MlRNjs5cnFMcnNcdHRRdHRXoJxkoZ5towAApAAApAEApAIBpQMCpQQCpgUDpgYDpwYCpwYDpwwEqAkAqQgBqgkCqg4Aqg8AqwsBrBIGrRUFrhwDti4DtjIOtwEAtwYBuDcLuLBduLJnuLJxuLR3uQEAuTUDugMAuj4Du0IMwRILwVQKwg8Lw1sWxmMRyQAAynMGywAAzAAAzcRqzcmXz8d5z8mI0H8D1BcV3Rsb364h4LYV4R0d4h8f4rgP4roV47e15L275cEH5sQL6CMj6MsL6SQk6tza697c7NEF7No/7NpB7N1c7OB07OF/7OGD7OOW7dYS7dcg7dc/7dkv7ds+7dxQ7dxR7d1R7d5g7d5i7d9j7d9k7d9q7d9r7eBu7eBy7eB47eFz7eF57eKG7eSW7eSY7eal7eam7eaq7eau7ei37ikp7tYQ7tlK7toq7to57t1S7t9b7t9h7uBm7uFo7uFt7uFv7uOF7uOG7uSQ7uSU7uag7u7s7ykp79kp79ol79oo79s0795S8N0+8OBS8OFl8d5B8d9F8d9L8eBM8eFY8eJi8eJo8uBI8uJb8uNg8uNm9OZt9OZu9OZw9OZy9OZ09OZ19c9a9eF19eJx420ePQAAADd0Uk5TAAECAwMEBwwQERERGh8jKCkrLDIzNTg6RU1OXXl8gYSGiayyxNXa3N/i8vT09PT19vf4+f3+/tuly8MAAAF6SURBVCjPY2AgF7BIyqtoaanIS7KgiguoapucO3/+nIm2qgCSMJOMntmZPavWrF19+KyZngwTXEJG98KhlVNntrS2TJ9y/IKuDNwcvQs7m8LNIzdsjDKPmLzigh7UNBZVs6M9/RY21pvmWdpaTes/ZqYKcYGk9qnG5ZMyZ+XMX5g1J7t5Yt9pbUmwhLzJ7oaeCTPWtc1dMG/2+hkTew+ayIMlVM51OtjZOzg4Ojk5u7i6u3ksOacCltA63xVQuxkO6vy7z2tBJbaGlSEkyoOXQSVUzu1ICcmAg+jkXVCj5E32FXqlwsTTvQv2Qy2X1D7RnhgKk4iN7zgJdS7Qg0cqffMWbQGBfL/SAzAPgoJkW0VQQlFNVXFSYMlSeJCAA/FIfW6cj2dMWvWRCzoyiGCX0zc7sXf74sXb954wM1Dkhkuw8UhpGJmCIsrUWFNaiIcNJsHIyScqq6RmaKiurCAhwsfFiIhDVg5eQRExcTFhfh52ZowEwciIpBQASF2TU8xLwg0AAAAASUVORK5CYII=);
+}
+
+.happy {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAFf0lEQVRIx42WW2xcVxWGv7X3OTMe3+IotZu44WKbJCQpVdJSWrWCyE7rVuoDkAeHoEo0RWpLEwpPvCGBInERCCRqR30ILQIJWgNShURQ7QSBFCOgwU4aSHNxbDeO48vEscmMZzznnL0XD2cyTalCOdJ6OGuf8///3vvfa23hfzzjLz3do873mWzQm2lr6PAeQDAGonxp0q/GQ1gZ3PTcy3+8HYbcBninhGakaVtbrqFrA9nGOrxbhniu+otCsJ64GFKYmKV4bqmssXt401d+OvaBBBf69/fXd7UcuPPT2/B+Cb96jiS+ilELKtXQ6tdKkLkDCTYx/+YNSlP5gS3Pv3LwtgQXXnzq1XXdHXubOzbgy6dJogkgqIIaUN4NQFRr70FmHYX5Thb+cum1rV995QvvI3j7xaf627o7DjR/pJ24OIzzKxj+S7VKFZj3kqaTwQaWwpUmFk7LwLYDRw7WCM4f3r+z7qNrR9t3bSW6MQxaBjUIggioTwOtgiNYLKjiPai/KQBsoMydamIlH9677bkjYwZAQjNy166txKUz4FbAG0SFMFAmzyjL1yAQEC/gLYFY5mcc0+OeMDDpUnkBL7jI0Lq9iIiOAARnD+/vadzelvPJElq5CGSrSuDUCfjniOKcsucZSy5nQGBxwTH8a4cxUCooH78nJHE390MQoHFjlDt7+Ms9RmPf19zZjiufAw3BK3gwwPykcm1mgqW5Ca5cBGsNViyLV4XrsxNcm5lg/jKISG0GKYmhpS3Ge/oCk7W9dU11VBZna+pBEAyrkXnXbr6MVkoISvRvreULSwuwmkF9E8asqZkh2+CRQHuDbFtjh0+WQQMgwGBQXyReuYwsXWf8TIH8wgqfe3ycaDYlXJ30nDzhEIEtayzRtCVeBRKPybUg2WY0t4Yw19URoAbcMuIruNIZktIi4hJQw6OfhaACnZtz3LXFkFQAB/fttjxTsIBw/y6DiwRBQEBXSmhxBZEZFt4YJygvTpEUpokXTiOSpS4jzExZWjcKqvDIXvAeknLVqh4qBeHBRy04wcXpxgYCJhTiBNQJYgVvQkzhrVHElwiCLFlr+cV3lcHDDougDpIK+FVQBziBpJpfFZJI0ESwCkcHEwZ+HNFUJxhNhYBilqcqk9n6dk7+wdHXHTF0wvHCtwJ8opCkS4JPgbmFJM2l4z6GPXtC/nbJcej7FRZnIACWl2XSVMrJUGEuw/27hddPZHhoh/DS9zy5EMTfBKwqugl8S048ZAy88fuEzXcKn9lhWZj3FPOWOGLISCiDl4ffwWdaKFz3PPuNkKuznp/9wNNQbzA1EvMe1TgQB7mM8NbfHT8fTjj4xSwPPBhy9z2WK+cNYnVQAH73xPrSYz/sylWmxxBjiYvCd74d01QvvPC1kIY1hrii+CStR8ZDgCAJ9B+JePOi50dfz9K8VnARiCjHXs+WP390vt4C9HXmjhZn/LMb7jX4YoQNhN3dlsVp5dBPIhYmleQGBB6Ki8rUuOf48YRDL1e4+8OGbz6fJZMVfAxBCKN/DiiW5IHB8ZW5Wrke7Lmj/74vdR5Y334BV/IghtAIRDD614R/nfXMXlMQaMgJOz5m2LkjoLFRqJTT8mJDuHLeMHrKDOwbzh98X8P5Zfe6Vz/5eGbvxk+USMqpHUXBChhJ7YhLz0OSCC5WNElBggy887bhH2PmtSeP5WsNx95K8Nup8m8e0lxr8ar5VPtmhxVBk9SGLk7PRBILSQQ+Sh0U2HTNT/4p4PxFM/Dk8fzTH9j0f9XbujMQHenarLkPbfc0Nnu8A7xJ7erBiFK8bpi+JFyasOXE68P7hvNj/9etokb0SGuPd9KXydC7tkU7tNrsRWBp2UxGsQ4Zw+C+Y/nbXlv+A87dvr+Q/yt3AAAAAElFTkSuQmCC);
+}
+
+.sad {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAA3NCSVQICAjb4U/gAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAArVQTFRF////AAAA/4AAMzMz/1UAJCQkKytAMzMzLzk5LDU1Ljc3SzwsLzU1LTI3LDU1LjU183YALzI2LTQ0LjQ3LTM2ODQyLzQ3LTU1NzU09XsAlFYYhVEe9HwAqV8U6HcD9XwAoFwX3HMGx2sMwmkN9YAA9H4A4HcF3ncG63oC6HkD9nwA9Jcg9Jgf9Jkf9YEI84EI8oAI8XoB8ZYf8JUg9blA87hA9MlRPUI9PkM7PkM+TVBHU1ZFVVhOXV5BYWJJYmVSY2ZaZ2dIdHRTh4RIiohZi4dSk5Fjq6RVs6pNtbB3tq94u7JcvLZ6vLZ/vrZlwLqGwbZVwrtwycOFy8FlzsFL1cx92s9e5Np/5t6V59lZ59x96txk7NQI7NQM7NUL7NUM7NUN7NUS7NYX7NYZ7NYd7Nci7Ncl7Ncp7Nky7Nkz7Nk07No+7No/7NpA7NpB7NtI7NtK7NtM7NxN7NxU7N1c7OB17OF/7OOW7dQF7dUG7dUO7dUP7dYQ7dYS7dYa7dcZ7dcc7dcg7dch7dgo7dgq7dkt7dku7dkv7dkw7dkx7dk17dk27do47do57ds+7dtA7dtC7dtE7dtG7dtI7dxQ7dxR7d1O7d1R7d1V7d1W7d1X7d5Z7d5a7d5e7d5g7d5i7d9j7d9k7d9l7d9m7d9n7d9r7eBu7eBx7eBy7eBz7eB37eB47eFz7eF57eF77eF+7eKG7eKH7eOM7eSP7eSW7eal7eam7eaq7eau7tYQ7toq7to57ts87txA7txD7t1S7t9e7t9h7uBm7uFo7uFt7uFv7uJ67uOF7uOG7uSQ7uaf79kp79ol79oo79s0795M795S8N0+8OBS8OFl8d5B8d9F8d9L8eBM8eFY8eJi8eJo8uBI8uJb8uNg9OZt9OZu9OZw9OZy9OZ09OZ19c9a9eF19eJxZUA6GQAAADd0Uk5TAAECAwMEBwwQERERGh8jKCkrLDIzNTg6RU1OXXl8gYSGiayyxNXa3N/i8vT09PT19vf4+f3+/tuly8MAAAGkSURBVCjPY2AgF7BIyqtoaanIS7Kgiguoaps8efr0iYm2qgCSMJOMntmjy4eOHD1867GZngwTXEJG99nNg8vWloWXrV4a/UxXBm6O3rMLJUvXbTzptXnDWu/IZ3pQ01hUze5Mmbci3NPf6pRPoGPAXTNViAsktR/k7V9YuiHIxmF7hJNF2PSH2pJgCXmTSzlT5q85Xr51x7YtJ9YsmHrDRB4sofJk757CA8vWb/K1tzS3C55bdP6JClhC62l796SZi1a6WLuFRvnZzprc91QLKnG6LbtwjrvrqmOrli9xnta/Gyqh8uRcWlZuoce8xUsWz5sdMqHrItQoeZOryc1ZOflTimcUTynI7W65BrVcUvtebV1aR0/OhIn7+nszmhvvQ50L9ODthKSm5tbOzM629NTk6zAPgoLkTExNUkNjU2NKfeIueJCAA/F2RWVcVXV1fOztZzoyiGCX0ze7d+Xszp1nr9wzM1Dkhkuw8UhpGJmCIsrUWFNaiIcNJsHIyScqq6RmaKiurCAhwsfFiIhDVg5eQRExcTFhfh52ZowEwciIpBQAM+Wc8sN8YkUAAAAASUVORK5CYII=);
+}
+</style>
+<script>
+		//array of Mood objects
+		var moods = new Array();
+		var currentPage = 0;
+		var pageSize = 5;
+		var nextId = 0;
+		
+		//mood object to hold each record
+		function Mood(date, text, mood, id) {
+		    this.date = date;
+		    this.text = text;
+		    this.mood = mood;
+		    this.id = id;
+		}
+		
+		function getDateTime() {
+			var currentDate = new Date();
+			return getDate(currentDate) + " " + getTime(currentDate);
+		}
+		
+		function getDate(currentDate) {
+			var day = currentDate.getDate();
+			var month = currentDate.getMonth() + 1;
+			var year = currentDate.getFullYear();
+			return day + "/" + month + "/" + year;
+		}
+		
+		function getTime(currentDate) {
+			var hh = currentDate.getHours();
+			var mm = currentDate.getMinutes();
+			var ss = currentDate.getSeconds();
+			return hh + ":" + mm + ":" + ss;
+		}
+		
+		//get the selected one from radio buttons
+		function getMood() {
+			var moods = document.getElementsByName('mood');
+			for (var i = 0, length = moods.length; i < length; i++) {
+			    if (moods[i].checked) {
+			        return moods[i].value;
+			        break;
+			    }
+			}
+		}
+		
+		function getMoodInput() {
+			return document.getElementById("moodInput").value;
+		}
+		
+		function removeRow(rowId) {
+			//if the rowId matches one of the Mood object's id in moods array
+			for(var i=0;i<moods.length;i++) {
+				if(moods[i].id == rowId) {
+					moods.splice(i,1);
+				}
+			}
+			document.getElementById("row" + rowId).remove();
+			constructCurrentPage();
+		}
+		
+		function prependMood() {
+			moods.unshift(new Mood(getDate(new Date()), getMoodInput(), getMood(), nextId++));
+			constructCurrentPage();
+		}
+		
+		function prev() {
+			if(currentPage>0) {
+				currentPage--;
+			}
+			constructCurrentPage();
+		}
+		
+		function next() {
+			if(moods.length%pageSize!=0) {
+				if(currentPage<Math.floor(moods.length/pageSize)) {
+					currentPage++;
+				}
+			} else {
+				if(currentPage<Math.floor(moods.length/pageSize)-1) {
+					currentPage++;
+				}
+			}
+			constructCurrentPage();
+		}
+		
+		//reconstruct the page based on the pagesize, currentpage index and the elements in the moods array.
+		function constructCurrentPage() {
+			//remove all existing elements before constructing
+			var tableElement = document.getElementById('moodDisplay');
+			while (tableElement.children.length>1) {
+				tableElement.removeChild(tableElement.lastChild);
+			}
+			//construct with new elements
+			for(var i=(currentPage+1)*pageSize-1;i>=(currentPage)*pageSize;i--) {
+				if(i<moods.length) {
+					var child = document.createElement("tr");
+					child.setAttribute("id", "row" + moods[i].id);
+					child.innerHTML = 
+					"<td>" + moods[i].date + "</td>" + 
+					"<td>" + moods[i].text + "</td>" + 
+					"<td class='" + moods[i].mood + "'></td>" + 
+					"<td><input type='button' value='Delete' onClick='removeRow(" + moods[i].id + ")'/></td>";
+					//insert before the first record but after the table header row
+					tableElement.insertBefore(child, tableElement.children[1]);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<span><script>document.writeln(getDateTime());</script></span>
+		<h2>My Micro Blog</h2>
+		<p>
+			What's in my mind: <input type="text" id="moodInput" />
+		</p>
+		<p>
+			Today's mood: 
+			<input type="radio" name="mood" value="otm">Over the moon 
+			<input type="radio" name="mood" value="happy" checked>Happy
+			<input type="radio" name="mood" value="sad">Sad 
+			<input type="button" id="moodSubmitBtn" value="Post" onClick="prependMood();" />
+		</p>
+		<div>
+			<table id="moodDisplay">
+				<tr>
+					<th>Date</th>
+					<th>Mood</th>
+					<th>What's in my mind</th>
+					<th>Delete</th>
+				</tr>
+			</table>
+			<p>
+				<a href="#" onClick="prev();">Prev</a> - <a href="#" onClick="next();">Next</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

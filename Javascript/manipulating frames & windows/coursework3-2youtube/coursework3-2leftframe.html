@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>My TODO List Generator</title>
+<script type="text/javascript">
+<!-- /* Hide content from old browsers */
+
+   var taskList = new Array();
+   var TOTAL_TASK_LIMIT = 10; 	// Maximum number of tasks
+
+   // Add additional variables if needed
+
+   //parent.taskDisplayFrame.location = 'coursework3-2rightframe.html';
+
+   function addTask() {
+	   var index = taskList.length;
+       if (index < TOTAL_TASK_LIMIT) {
+		  taskList[index] =new Object;
+		  taskList[index].task = document.eForm.taskbox.value;
+		  displayTasks();
+  
+       } 
+       else {
+           alert('Sorry - no more than 10 tasks allowed.');
+       }
+   }
+
+   function displayTasks(selectTask) {
+   
+		with(parent.taskDisplayFrame.document){
+			open();
+			writeln('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"');
+	        writeln('        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+	        writeln('<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">');
+	        writeln('<head>');
+	        write('<meta http-equiv="Content-Type" ');
+	        writeln('content="text/html; charset=ISO-8859-1" />');
+	        write('<title>Add and Display Tasks');
+	        writeln('</title></head><body bgcolor="WHITE">');
+	        writeln('<center><h1>List of Tasks</h1>');
+	        write('<table border="1"><tr><td>');
+	        writeln('<b>TASK</b></td><td><b>PRIORITY</b></td></tr>');
+	        for (var i = 0 ; i < taskList.length ; i++) {
+	           write('<tr><td>' + taskList[i].task + '</td>');
+	           writeln('<td>' + taskList[i].priority + '</td></tr>'); 
+	        }
+	        writeln('</table></center></body></html>');
+	        close();
+	    }
+	}
+
+   // Display the current time
+   function startTime()
+   {
+   
+   }
+
+   function checkTime(i)
+   {
+     if (i<10)
+     {
+       i="0" + i;
+     }
+     return i;
+   }
+// end hiding content from old browsers  -->
+</script>
+</head>
+
+<body onload="startTime()">
+<center>
+<div id="txt"></div>
+
+<h1>Add and Display Tasks</h1>
+<form action="none" name="eForm">
+<font size="+2">Task:</font> 
+<input type="text" name="taskbox" size="30" maxlength="40" /><br /><br />
+<font size="+2">Priority:</font> 
+<input type="radio" name="priority" checked="checked">High
+<input type="radio" name="priority">Medium
+<input type="radio" name="priority">Low<br>
+
+<font size="+2">Set an alarm:</font> 
+<input type="radio" name="alarm">Yes
+<input type="radio" name="alarm" checked="checked">No<br>
+Hour:<input type="text" name="hourbox" size="2" maxlength="2" />
+Minute:<input type="text" name="minutebox" size="2" maxlength="2" /><br /><br />
+Webpage to open:<input type="text" name="actionbox" size="40"/><br />
+
+<h3><a href="javascript:addTask()">Add New Task</a></h3>
+<h3><a href="javascript:displayTasks('all')">Display All Tasks</a></h3>
+<h3><a href="javascript:displayTasks('high')">Display High Priority Tasks Only</a></h3>
+<h3><a href="javascript:displayTasks('medium')">Display Medium Priority Tasks Only</a></h3>
+<h3><a href="javascript:displayTasks('low')">Display Low Priority Tasks Only</a></h3>
+
+<br />
+
+</form>
+</center>
+</body>
+</html>

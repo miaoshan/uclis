@@ -1,0 +1,65 @@
+<html>
+<head>
+<script>
+	var bookinfo=new Array();
+	function addBook(){
+		bookinfo.push(document.getElementById("booktitle").value);
+		bookinfo.push(document.getElementById("keyword").value);
+		bookinfo.push(document.getElementById("location").value);
+		clear();
+		
+	}
+	
+	function clear(){
+		document.getElementById("booktitle").value="";
+		document.getElementById("keyword").value="";
+		document.getElementById("location").value="";
+	}
+	
+	function showAllBooks(){
+		
+		document.writeln('<table border=1>');
+		document.writeln('<tr><th>booktitle</th>');
+		document.writeln('<th>keyword<th>');
+		document.writeln('<th>location</th></tr>');
+		for(var i=0; i<bookinfo.length; i+=3){
+			document.writeln('<tr><td>+bookinfo[i]+'</td>);
+			document.writeln('<td>+bookinof[i+1]+'</td>);
+			document.writeln('<td>+bookinfo[i+2]+'</td>);
+		}
+		document.writeln('</table>');
+	}
+	
+	function search(){
+		var bt=document.getElementById("booktitle").value;
+		var kw=document.getElementById("keyword").value;
+		var lt=document.getElementById("location").value;
+		document.writeln('<table border=1>');
+		document.writeln('<tr><th>booktitle</th>');
+		document.writeln('<th>keyword</th>');
+		document.writeln('<th>location</th></tr>');
+		for(var i=0; i<bookinof.length; i+=3){
+			if(bt==bookinfo[i] || kw==bookinfo[i+1] || lt==bookinfo[i+2]){
+				document.writeln('<tr><td>'+ bookinfo[i]+'</td>');
+				document.writeln('<td>' + bookinfo[i+1] +'</td>');
+				document.writeln('<td>' + bookinfo[i+2] +'</td></tr>');
+				
+			}
+			document.writeln('</table>');
+		}
+		
+	}
+	
+</script>
+</head>
+<body>
+booktitle: <input type="text" name="booktitle" id="booktitle"><br>
+keyword: <input type="text" name="keyword" id="keyword"><br>
+location: <input type="text" name ="locaiton" id="location"><br>
+
+<a href="addBook()">add new book</button>
+<a href="showAllBooks()">show all books</a><br>
+<a href="search()">search</a>
+
+</body>
+</html>

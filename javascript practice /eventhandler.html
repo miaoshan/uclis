@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+
+function clickButton(){
+	window.location="http://www.bbc.co.uk";
+}
+
+function Fill(x,y){
+	document.getElementById(x).innerHTML = y;
+
+}
+
+
+
+function init(){
+	Fill('a',"Hi");
+	Fill('b',"Hi Hi");
+	Fill('c',"hello");
+	
+}
+</script>
+</head>
+<body>
+<input type="button" value="click here" onclick="clickButton()"/> 
+
+<body onload="init()">
+<h1>function</h1>
+<div id="a"></div>
+<div id="b"></div>
+<div id="c"></div>
+</body>
+</html>
+

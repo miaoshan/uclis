@@ -1,0 +1,120 @@
+<html>
+<head>
+<style>
+h1 {
+	font-size: 16px;
+	color: pink;
+}
+</style>
+<script>
+	var a = new Array();
+
+	function addEvent() {
+		var b = new Object();
+		b.date = document.getElementById("selectdate").value;
+		b.starttime = document.getElementById("selectstarttime").value;
+		b.finishtime = document.getElementById("selectfinishtime").value;
+		a.push(b);
+
+		displayTimeTable();
+	}
+
+	function displayTimeTable() {
+		var display = "<table>";
+		display += "<caption>" + "Alison's Childminding" + "</caption>";
+		display += "<tr><th>date</th>";
+		display += "<th>time</th></tr>";
+		display += "<tr>";
+		for ( var i = 0; i < a.length; i++) {
+			display += "<td>" + a[i].date + "</td>";
+			display += "<td>" + a[i].starttime + '~' + a[i].finishtime + "</td>";
+			display += "<td><button type='button' value='edit' id='edit' onclick='editEvent("
+					+ i + ")'>Edit</button></td>";
+			display += "<td><button type='button' value='delete' id='delete' onclick='deleteEvent("
+					+ i + ")'>Delete</button></td>";
+			display += "</tr>";
+		}
+		display += "</table>";
+		document.getElementById("displayTable").innerHTML = display;
+	}
+
+	function deleteEvent(i) {
+
+		a.splice(i, 1);
+		displayTimeTable();
+	}
+
+	function editEvent(x) {
+		var edisplay = "<table>";
+		edisplay += "<caption>" + "Alison's Childminding" + "</caption>";
+		for ( var i = 0; i < a.length; i++) {
+			edisplay += "<tr>";
+			if (i == x) {
+				edisplay += "<tr><th>date</th>";
+				edisplay += "<th>start time</th>";
+				edisplay += "<th>finish time</th></tr>";
+				edisplay += "<tr>";
+				edisplay += "<td><select id='highlightevent' value="+a[i].date+"><option value='Monday'>Monday</option><option value='Tuesday'>Tuesday</option><option value='Wednesday'>Wednesday</option><option value='Thursday'>Thursday</option></select></td>";
+
+				edisplay += "<td><select id='highlighttime1' value=" + a[i].starttime +"><option value='9:15'>9:15</option><option value='9:30'>9:30</option><option value='12:15'>12:15</option><option value='12:30'>12:30</option></select></td>";
+
+				edisplay += "<td><select id='highlighttime2'value="+ a[i].finishtime + "><option value='14:45'>14:45</option><option value='15:00'>15:00</option><option value='17:45'>17:45</option><option value='18:00'>18:00</option></select></td>";
+
+				edisplay += "<td><button type='button' id='saveevent' onclick='saveEvent("
+						+ i + ")'>Save</button>";
+			}
+
+			else {
+				edisplay += "<td>" + a[i].date + "</td>";
+				edisplay += "<td>" + a[i].starttime + '~' + a[i].finishtime + "</td>";
+
+			}
+
+			edisplay += "<td><button value='edit' onclick='editEvent(" + i
+					+ ")'>Edit</button></td>";
+			edisplay += "<td><button type='button' value='delete' id='delete' onclick='deleteEvent("
+					+ i + ")'>Delete</button></td>";
+			edisplay += "</tr>";
+		}
+		edisplay += "</table>";
+		document.getElementById("displayTable").innerHTML = edisplay;
+	}
+
+	function saveEvent(y) {
+
+		a[y].date = document.getElementById("highlightevent").value;
+		a[y].starttime = document.getElementById("highlighttime1").value;
+		a[y].finishtime = document.getElementById("highlighttime2").value;
+
+		displayTimeTable();
+	}
+</script>
+</head>
+<body>
+	<h1>Date</h1>
+	<select id="selectdate">
+		<option value="Monday">Monday</option>
+		<option value="Tuesday">Tuesday</option>
+		<option value="Wednesday">Wednesday</option>
+		<option value="Thursday">Thursday</option>
+	</select>
+	<h1>Starting Time</h1>
+	<select id="selectstarttime">
+		<option value="9:15">9:15</option>
+		<option value="9:30">9:30</option>
+		<option value="12:15">12:15</option>
+		<option value="12:30">12:30</option>
+	</select>
+	<h1>Finishing Time</h1>
+	<select id="selectfinishtime">
+		<option value="14:45">14:45</option>
+		<option value="15:00">15:00</option>
+		<option value="17:45">17:45</option>
+		<option value="18:00">18:00</option>
+	</select>
+	<br>
+	<button value="addevent" id="addevent" onclick="addEvent()">add</button>
+	<p id="displayTable"></p>
+
+</body>
+</html>

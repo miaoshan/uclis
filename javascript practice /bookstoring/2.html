@@ -1,0 +1,28 @@
+
+<html>
+<head>
+<script>
+	function changeText() {
+		var userInput = document.getElementById('userInput').value;
+		document.getElementById('display').innerHTML = userInput;
+		clear();
+	}
+
+	function clear() {
+
+		document.getElementById("userInput").value = "";
+	}
+</script>
+</head>
+<body>
+	<p>
+		Welcome to the site <b id='display'></b>
+	</p>
+	<input type="text" id="userInput">
+	<br>
+	<button onclick="changeText()">click here to display above</button>
+
+
+
+</body>
+</html>

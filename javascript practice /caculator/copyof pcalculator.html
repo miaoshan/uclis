@@ -1,0 +1,169 @@
+<html>
+<head>
+<script>
+	var a = new Array();
+
+	function clickN1() {
+		if (a[a.length - 1] == "number") {
+
+		}
+
+		var nbr1 = parseInt(document.getElementById("n1").value);
+		a.push(nbr1);
+		document.getElementById("display").value = nbr1;
+
+	}
+
+	function clickN2() {
+
+		var nbr2 = parseInt(document.getElementById("n2").value);
+		a.push(nbr2);
+		document.getElementById("display").value = nbr2;
+
+	}
+
+	function clickN3() {
+
+		var nbr3 = parseInt(document.getElementById("n3").value);
+		a.push(nbr3);
+		document.getElementById("display").value = nbr3;
+
+	}
+
+	function clickN4() {
+
+		var nbr4 = parseInt(document.getElementById("n4").value);
+		a.push(nbr4);
+		document.getElementById("display").value = nbr4;
+	}
+
+	function clickN5() {
+
+		var nbr5 = parseInt(document.getElementById("n5").value);
+		a.push(nbr5);
+		document.getElementById("display").value = nbr5;
+	}
+
+	function clickN6() {
+
+		var nbr6 = parseInt(document.getElementById("n6").value);
+		a.push(nbr6);
+		document.getElementById("display").value = nbr6;
+	}
+
+	function clickN7() {
+
+		var nbr7 = parseInt(document.getElementById("n7").value);
+		a.push(nbr7);
+		document.getElementById("display").value = nbr7;
+	}
+
+	function clickN8() {
+
+		var nbr8 = parseInt(document.getElementById("n8").value);
+		a.push(nbr8);
+		document.getElementById("display").value = nbr8;
+	}
+
+	function clickN9() {
+
+		var nbr9 = parseInt(document.getElementById("n9").value);
+		a.push(nbr9);
+		document.getElementById("display").value = nbr9;
+	}
+
+	function clickPlus() {
+
+		a.push(document.getElementById("plus").value);
+		document.getElementById("display").value = document
+				.getElementById("plus").value;
+
+	}
+
+	function clickMinus() {
+		a.push(document.getElementById("minus").value);
+		document.getElementById("display").value = document
+				.getElementById("minus").value;
+	}
+
+	function clickMultiply() {
+		a.push(document.getElementById("multiply").value);
+		document.getElementById("display").value = document
+				.getElementById("multiply").value;
+	}
+
+	function clickDivide() {
+		a.push(document.getElementById("divide").value);
+		document.getElementById("display").value = document
+				.getElementById("divide").value;
+	}
+
+	function clickClear() {
+
+		document.getElementById("display").value = "";
+		a = new Array();
+	}
+	function calculateN() {
+		for ( var i = 0; i < a.length; i += 2) {
+			if (!(typeof (a[i]) == "number")) {
+				alert("invalid number");
+				clickClear();
+			}
+
+			if (a[i + 1] !== "+" && a[i + 1] !== "-" && a[i + 1] !== "x"
+					&& a[i + 1] !== "/" && i + 1 < a.length) {
+				alert("invalid symbol");
+				clickClear();
+			}
+		}
+		var total = 0;
+
+		for ( var i = 0; i < a.length; i += 2) {
+			if (i == 0) {
+				total = a[i];
+			} else {
+
+				if (a[i - 1] == "+") {
+					total = total + a[i];
+				}
+				if (a[i - 1] == "-") {
+					total = total - a[i];
+				}
+				if (a[i - 1] == "x") {
+					total = total * a[i];
+				}
+				if (a[i - 1] == "/") {
+					total = total / a[i];
+				}
+			}
+		}
+		document.getElementById("display").value = total;
+
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="display" onclick="displayN()">
+	<br>
+	<button value="1" id="n1" onclick="clickN1()">1</button>
+	<button value="2" id="n2" onclick="clickN2()">2</button>
+	<button value="3" id="n3" onclick="clickN3()">3</button>
+	<br>
+	<button value="4" id="n4" onclick="clickN4()">4</button>
+	<button value="5" id="n5" onclick="clickN5()">5</button>
+	<button value="6" id="n6" onclick="clickN6()">6</button>
+	<br>
+	<button value="7" id="n7" onclick="clickN7()">7</button>
+	<button value="8" id="n8" onclick="clickN8()">8</button>
+	<button value="9" id="n9" onclick="clickN9()">9</button>
+	<br>
+	<button value="+" id="plus" onclick="clickPlus()">+</button>
+	<button value="-" id="minus" onclick="clickMinus()">-</button>
+	<button value="x" id="multiply" onclick="clickMultiply()">x</button>
+	<br>
+	<button value="/" id="divide" onclick="clickDivide()">/</button>
+
+	<button value="=" id="calculate" onclick="calculateN()">=</button>
+	<button value="c" id="clear" onclick="clickClear()">C</button>
+</body>
+</html>

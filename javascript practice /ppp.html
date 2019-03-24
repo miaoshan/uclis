@@ -1,0 +1,54 @@
+
+<html>
+<head>
+<style>
+
+select#gender option[value="male"]   { background-image:url(male.png);   }
+select#gender option[value="female"] { background-image:url(female.png); }
+select#gender option[value="others"] { background-image:url(others.png); }
+
+table.bottomBorder td, table.bottomBorder th{
+border-bottom: 1px solid gray;}
+
+
+table, th, td {
+border: 2px solid pink;}
+
+table.bottomBorder{
+
+border-collapse: collapse;}
+
+table.bottomBorder td, table.bottomBorder th{
+
+border-bottom: 1px solid pink;}
+
+</style>
+</head>
+<table 
+class="bottomBorder" 
+id="displayBookInfo-table">
+<tbody>
+<tr id="bookInfo-head">
+  <th>BOOK TITLE</th>
+  <th>KEYWORD</th>
+  <th>LOCATION</th>
+</tr>
+</tbody>
+</table>
+
+<select id="gender">
+  <option>male</option>
+  <option>female</option>
+  <option>others</option>
+</select> 
+
+
+<select>
+  <option style="background-image:url(male.png);">male</option>
+  <option style="background-image:url(female.png);">female</option>
+  <option style="background-image:url(others.png);">others</option>
+</select> 
+
+</html>
+
+

@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+function balanceScale(arr){
+	var a1=arr[0];
+	var a2=arr[1];
+	var diff= a1[0]-a1[1];
+	diff = Math.abs(diff);
+	var result=[];
+	
+	for(var i=0; i<a2.length; i++){
+		for (var j=i+1; j<a2.length; j++){
+			if (a2[i]==diff){
+				return a2[i];
+			}
+			else if (Math.abs(a2[i]-a2[j])== diff){
+				var newarr1=[];
+				newarr1.push(a2[i]);
+				newarr1.push(a2[j]);
+				result=newarr1;
+				return result;
+			}
+			
+			else if(a2[i]+a2[j]==diff){
+				var newarr2=[];
+				newarr2.push(a2[i]);
+				newarr2.push(a2[j]);
+				result=newarr2;
+				return result; 
+			}
+		}
+	}
+}
+
+
+
+	
+
+</script>
+</head>
+<body>
+</body>
+</html>

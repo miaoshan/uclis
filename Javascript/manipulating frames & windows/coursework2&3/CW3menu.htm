@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>My TODO List Generator</title>
+<script type="text/javascript">
+	var taskList = new Array();
+	var openedWindows = new Array();
+	var TOTAL_TASK_LIMIT = 10; // Maximum number of tasks
+
+	parent.taskDisplayFrame.location = 'CW3content.htm';
+	
+	//OpenedWindow object is used to store the location, window reference, hour and minute of the opened window.
+	function OpenedWindow(location, reference, h, m) {
+		this.location = location;
+		this.reference = reference;
+		this.h = h;
+		this.m = m;
+	}
+	
+	function Alarm(hour, minute) {
+		this.hour = hour;
+		this.minute = minute;
+	}
+	
+	function Task(text, priority, alarm, action) {
+	    this.text = text;
+	    this.priority = priority;
+	    this.alarm = alarm;
+	    this.action = action;
+	}
+	
+	function addTask() {
+		var index = taskList.length;
+		if (index < TOTAL_TASK_LIMIT) {
+			var task = new Task(getTaskInput(), getPriority(), getAlarmTime(), getAction());
+			taskList.push(task);
+		} else {
+			alert('Sorry - no more than 10 tasks allowed.');
+		}
+	}
+
+	function displayTasks(priority) {
+		var empty = true;
+		//we know that there are tasks in the array but not sure about the number of low, high or medium tasks. So we assume there are hence show the table.
+		if(taskList.length > 0) {
+			parent.taskDisplayFrame.document.getElementById('noTaskBanner').style.display="none";
+			parent.taskDisplayFrame.document.getElementById('taskDisplay').innerHTML = "<tr><th>Task</th><th>Priority</th><th>Alarm</th><th>Action</th></tr>";
+		}
+		
+		var tableElement = parent.taskDisplayFrame.document.getElementById('taskDisplay');
+		for(var i=0;i<taskList.length;i++) {
+			if(priority==null || taskList[i].priority == priority) {
+				var child = document.createElement("tr");
+				child.innerHTML = 
+					"<td>" + taskList[i].text + "</td>"  + 
+					"<td>" + taskList[i].priority + "</td>" + 
+					"<td>" + taskList[i].alarm.hour + ":" + taskList[i].alarm.minute + "</td>" + 
+					"<td>" + taskList[i].action + "</td>";
+				tableElement.appendChild(child);
+				empty = false;
+			}
+		}
+		
+		//if it turns out that there is no task same as the priority specified above, then remove the table content
+		if(empty) {
+			parent.taskDisplayFrame.document.getElementById('noTaskBanner').style.display="block";
+			parent.taskDisplayFrame.document.getElementById('taskDisplay').innerHTML = "";
+		}
+	}
+	
+	function getAction() {
+		return document.getElementById("url").value;
+	}
+
+	function getAlarmTime() {
+		var alarm = document.getElementsByName('alarm');
+		for (var i = 0, length = alarm.length; i < length; i++) {
+		    if (alarm[i].checked) {
+		        var hour = document.getElementById("hour").value;
+		        var minute = document.getElementById("minute").value;
+		        return new Alarm(checkTime(hour), checkTime(minute));
+		    }
+		}
+		return null;
+	}
+	
+	function getPriority() {
+		var priorities = document.getElementsByName('priority');
+		for (var i = 0, length = priorities.length; i < length; i++) {
+		    if (priorities[i].checked) {
+		        return priorities[i].value;
+		        break;
+		    }
+		}
+	}
+	
+	function getTaskInput() {
+		return document.getElementsByName("taskbox")[0].value;
+	}
+	
+	function openWindows(h, m) {
+		for(var i=0;i<taskList.length;i++) {
+			if(taskList[i].alarm.minute == m && taskList[i].alarm.hour == h) {
+				var opened = false;
+				for(var j=0;j<openedWindows.length;j++) {
+					//if the window is already open
+					if(openedWindows[j].location == taskList[i].action) {
+						if(openedWindows[j].reference.closed) {
+							openedWindows.splice(j,1);
+						} else {
+							opened = true;
+							break;
+						}
+					}
+					//or if some other window in the same hour/minute is already open
+					if(openedWindows[j]!=undefined) {
+						if(openedWindows[j].h == h && openedWindows[j].m == m) {
+							opened = true;
+							break;
+						}
+					}
+				}
+				//open it and save the reference and name into openedWindows array
+				if(!opened) {
+					var openedWindow = window.open(taskList[i].action, taskList[i].action);
+					openedWindows.push(new OpenedWindow(taskList[i].action, openedWindow, h, m));
+				}
+			}
+		}
+	}
+	
+	// Display the current time
+	function startTime() {
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		// add a zero in front of numbers<10
+		m = checkTime(m);
+		s = checkTime(s);
+		openWindows(checkTime(h), m);
+		document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+		setTimeout(startTime, 1000);
+	}
+
+	// Add 0 in front of single-digit letters
+	function checkTime(i) {
+		if (i < 10) {
+			i = "0" + i;
+		}
+		return i;
+	}
+</script>
+</head>
+
+<body onload="startTime()">
+	<center>
+		<div id="txt"></div>
+
+		<h1>Add and Display Tasks</h1>
+		<form action="none" name="eForm">
+			<font size="+2">Task:</font> 
+			<input type="text" name="taskbox" size="30" maxlength="40" /><br />
+			<br /> 
+			<font size="+2">Priority:</font> 
+			<input type="radio" name="priority" checked="checked" value="High">High 
+			<input type="radio" name="priority" value="Medium">Medium 
+			<input type="radio" name="priority" value="Low">Low<br>
+			<font size="+2">Set an alarm:</font>
+			<input type="radio" name="alarm" value="Yes">Yes 
+			<input type="radio" name="alarm" value="No">No<br>
+			Hour:<input type="text" id="hour"></input>Minute:<input type="text" id="minute"></input><br/>
+			Webpage to open<input type="text" id="url"></input>
+			<h3>
+				<a href="javascript:addTask()">Add New Task</a>
+			</h3>
+			<h3>
+				<a href="javascript:displayTasks()">Display All Tasks</a>
+			</h3>
+			<h3>
+				<a href="javascript:displayTasks('High')">Display High Priority Tasks Only</a>
+			</h3>
+			<h3>
+				<a href="javascript:displayTasks('Medium')">Display Medium Priority Tasks Only</a>
+			</h3>
+			<h3>
+				<a href="javascript:displayTasks('Low')">Display Low Priority Tasks Only</a>
+			</h3>
+		</form>
+	</center>
+</body>
+</html>

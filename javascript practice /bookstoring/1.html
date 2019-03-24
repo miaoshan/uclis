@@ -1,0 +1,82 @@
+<html>
+<head>
+<script>
+	var a = new Array();
+	function addBook() {
+		var bookInfo = new Object();
+		bookInfo.title = document.getElementById("title").value;
+		bookInfo.keyword = document.getElementById("keyword").value;
+		bookInfo.location = document.getElementById("location").value;
+		a.push(bookInfo);
+		clear();
+		displayBook();
+
+	}
+
+	function displayBook() {
+		var displayAll = "<table border=1>";
+		displayAll += "<tr><th>bookname</th>";
+		displayAll += "<th>keyword</th>";
+		displayAll += "<th>location</th></tr>";
+
+		for ( var i = 0; i < a.length; i++) {
+			displayAll += "<tr>";
+			displayAll += "<td>" + a[i].title + "</td>";
+			displayAll += "<td>" + a[i].keyword + "</td>";
+			displayAll += "<td>" + a[i].location + "</td>";
+			displayAll += "</tr>";
+
+		}
+		displayAll += "</table>";
+
+		document.getElementById("display").innerHTML = displayAll;
+	}
+
+	function clear() {
+		document.getElementById("title").value = "";
+		document.getElementById("keyword").value = "";
+		document.getElementById("location").value = "";
+
+	}
+
+	function searchBook() {
+		var x = document.getElementById("title").value;
+		var y = document.getElementById("keyword").value;
+		var z = document.getElementById("location").value;
+		var displayAll = "<table border=1>";
+		displayAll += "<tr><th>bookname</th>";
+		displayAll += "<th>keyword</th>";
+		displayAll += "<th>location</th></tr>";
+
+		for ( var i = 0; i < a.length; i++) {
+			if (x == a[i].title || y == a[i].keyword || z == a[i].location) {
+				displayAll += "<tr>";
+				displayAll += "<td>" + a[i].title + "</td>";
+				displayAll += "<td>" + a[i].keyword + "</td>";
+				displayAll += "<td>" + a[i].location + "</td>";
+				displayAll += "</tr>";
+
+			}
+
+		}
+		displayAll += "</table>";
+		document.getElementById("display").innerHTML = displayAll;
+	}
+</script>
+</head>
+<body>
+	Booktitle:
+	<input type="text" name="book title" id="title">
+	<br> Keyword:
+	<input type="text" name="keyword" id="keyword">
+	<br> Location:
+	<input type="text" name="location" id="location">
+	<br>
+	<button onclick="addBook()">Add new book</button>
+	<br>
+	<button onclick="searchBook()">Search a book</button>
+
+	<p id="display"></p>
+
+</body>
+</html>

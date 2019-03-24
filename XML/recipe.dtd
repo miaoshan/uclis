@@ -1,0 +1,31 @@
+<!-- recipe.dtd Example dtd for recipe exercise -->
+
+<!ELEMENT recipe (author*, recipe-type+, title, source*, introduction?, servings?,  technique+, utensils*, ingredients, method) >
+<!ELEMENT author (first-name*, last-name) >
+<!ELEMENT first-name (#PCDATA) >
+<!ELEMENT last-name (#PCDATA) >
+<!ELEMENT recipe-type EMPTY  >
+<!ATTLIST recipe-type type (main-meal | starter | desert | snack | cake ) #REQUIRED >
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT source (#PCDATA) >
+<!ELEMENT introduction (#PCDATA) >
+<!ELEMENT servings (#PCDATA) >
+<!ELEMENT technique EMPTY>
+<!ATTLIST technique type (roast | grill | bake | fry | boil ) #REQUIRED >
+<!ELEMENT utensils (#PCDATA) >
+<!ELEMENT ingredients ( ingredient-name+)>
+<!ELEMENT ingredient-name (#PCDATA | ingredient-qty | ingredient-amnt | ingredient-prep)*>
+<!ELEMENT ingredient-qty (#PCDATA | ingredient-amnt)* >
+<!ELEMENT ingredient-amnt (#PCDATA) >
+<!ATTLIST ingredient-amnt unit (CDATA) #IMPLIED >
+<!ELEMENT ingredient-prep (#PCDATA) >
+<!ELEMENT method (#PCDATA | preparation | cooking | serving | para | timing)* >
+<!ELEMENT preparation (#PCDATA | para | timing)* >
+<!ELEMENT cooking (#PCDATA | para | timing)* >
+<!ELEMENT serving (#PCDATA | para | timing)* >
+<!ELEMENT timing (#PCDATA | oven-temp)* >
+<!ELEMENT para (#PCDATA) >
+<!ELEMENT oven-temp (#PCDATA) >
+<!ATTLIST oven-temp unit (CDATA) #REQUIRED >
+<!ELEMENT 
+

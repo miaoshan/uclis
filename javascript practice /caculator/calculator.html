@@ -1,0 +1,276 @@
+<html>
+<head>
+<script>
+	var v = new Array();
+	function clickNumber1() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n1").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n1").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n1").value));
+
+		}
+
+		
+			document.getElementById("display").value = v[v.length-1];
+	}
+
+	function clickNumber2() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n2").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n2").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n2").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber3() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n3").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n3").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n3").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber4() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n4").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n4").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n4").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber5() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n5").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n5").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n5").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber6() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n6").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n6").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n6").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber7() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n7").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n7").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n7").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber8() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n8").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n8").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n8").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickNumber9() {
+		if (v.length > 0) {
+			if (typeof (v[v.length - 1]) == "number") {
+				var temp = parseInt(v[v.length - 1]
+						+ document.getElementById("n9").value);
+				v.pop();
+				v.push(temp);
+			} else {
+				v.push(parseInt(document.getElementById("n9").value));
+
+			}
+		} else {
+			v.push(parseInt(document.getElementById("n9").value));
+
+		}
+		document.getElementById("display").value = v[v.length-1];
+
+	}
+
+	function clickSymbolPlus() {
+		v.push(document.getElementById("symbolplus").value);
+		document.getElementById("display").value = document
+				.getElementById("symbolplus").value;
+
+	}
+	function clickSubtract() {
+		v.push(document.getElementById("substract").value);
+		document.getElementById("display").value = document
+				.getElementById("substract").value;
+	}
+
+	function clickMultiply() {
+		v.push(document.getElementById("multiply").value);
+		document.getElementById("display").value = document
+				.getElementById("multiply").value;
+	}
+
+	function clickDivideby() {
+		v.push(document.getElementById("divideby").value);
+		document.getElementById("display").value = document
+				.getElementById("divideby").value;
+
+	}
+	function calculate() {
+		for ( var i = 0; i < v.length; i += 2) {
+			if (!(typeof (v[i]) == "number")) {
+				alert("try it again");
+				clickClear();
+				return;
+			}
+			if (i + 1 >= v.length) {
+				break;
+			}
+			if (v[i + 1] != "+" && v[i + 1] != "-" && v[i + 1] != "x"
+					&& v[i + 1] != "/") {
+				alert("do it again");
+				clickClear();
+				return;
+			}
+
+		}
+		var result = 0;
+		for ( var i = 0; i < v.length; i += 2) {
+			if (i == 0) {
+				result = v[i];
+			} else {
+				if (v[i - 1] == "+") {
+					result = result + v[i];
+				}
+				if (v[i - 1] == "-") {
+					result = result - v[i];
+				}
+				if (v[i - 1] == "x") {
+					result = result * v[i];
+				}
+				if (v[i - 1] == "/") {
+					result = result / v[i];
+				}
+			}
+		}
+		document.getElementById("display").value = result;
+		v = new Array();
+		v.push(result);
+
+	}
+
+	function clickClear() {
+		document.getElementById("display").value = "";
+		v = new Array();
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="display" size=12></input>
+	</br>
+	<button value="1" id="n1" onclick="clickNumber1()">1</button>
+	<button value="2" id="n2" onclick="clickNumber2()">2</button>
+	<button value="3" id="n3" onclick="clickNumber3()">3</button>
+	</br>
+	<button value="4" id="n4" onclick="clickNumber4()">4</button>
+	<button value="5" id="n5" onclick="clickNumber5()">5</button>
+	<button value="6" id="n6" onclick="clickNumber6()">6</button>
+	</br>
+	<button value="7" id="n7" onclick="clickNumber7()">7</button>
+	<button value="8" id="n8" onclick="clickNumber8()">8</button>
+	<button value="9" id="n9" onclick="clickNumber9()">9</button>
+	</br>
+	<button value="+" id="symbolplus" onclick="clickSymbolPlus()">+</button>
+	<button value="-" id="substract" onclick="clickSubtract()">-</button>
+	<button value="x" id="multiply" onclick="clickMultiply()">x</button>
+	</br>
+	<button value="/" id="divideby" onclick="clickDivideby()">/</button>
+	<button onclick="calculate()">=</button>
+	<button type="button" value="C" id="clear" onclick="clickClear()">C</button>
+
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<script>
+var userinfo = new Array();
+function signIn(){
+	userinfo.push(document.getElementById("username").value);
+	userinfo.push(document.getElementById("password").value);
+	clear();
+}
+
+function clear(){
+	document.getElementById("username").value="";
+	document.getElementById("password").value="";
+}
+
+function saveUserInfo(){
+	
+	var request;
+	if(window.XMLHttpRequest){
+		request=new XMLHttpRequest();
+	}
+	else{
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	request.onreadystatechange=function(){
+		if(request.readyState==4 && request.status==200){
+			
+		}
+	}
+	request.open("POST", "email.php","true");
+	request.setRequestHeader("Content-type"; application/x-www-form-urlencoded");
+	request.send("username="+userinfo[userinfo.length-2]+"password="+userinfo[userinfo.length-1]);
+}
+
+</script>
+</head>
+
+username:<input type="text" name="userid" id="username"><br>
+password:<input type="text" name="password" id="password"><br>
+<button value="signin" id="signin" onclick="signIn()">Sign In</button>
+
+
+
+</html>

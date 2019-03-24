@@ -1,0 +1,189 @@
+
+<html>
+<head>
+<script>  
+
+function changeoneletter(letter){
+if (letter=="a"){
+return "b";}
+if (letter =="b"){
+return "c";}
+if (letter =="c"){
+return "d";}
+if (letter =="d"){
+return "e";}
+if (letter =="e"){
+return "f";}
+if(letter=="f"){
+return "g";}
+if (letter =="g"){
+return "h";}
+if (letter =="h"){
+return "i";}
+if (letter =="i"){
+return "j";}
+if (letter =="j"){
+return "k";}
+if(letter =="k"){
+return "l";}
+if (letter=="l"){
+return "m";}
+if (letter =="m"){
+return "n";}
+if (letter=="n"){
+return "o";}
+if (letter=="o"){
+return "p";}
+if(letter=="p"){
+return "q";}
+if(letter=="q"){
+return "r";}
+if(letter =="r"){
+return "s";}
+if(letter=="s"){
+return "t";}
+if(letter=="t"){
+return "u";}
+if(letter=="u"){
+return "v";}
+if(letter=="v"){
+return "w";}
+if(letter =="w"){
+return "x";}
+if(letter=="x"){
+return "y";}
+if(letter=="y"){
+return "z";}
+if(letter=="z"){
+return "a";}
+return letter;
+}
+	              
+
+
+
+function changeletter(str){
+for(var i=0; i<str.length; i++){
+str=str.replace("a","b")}
+return str;}
+
+function replace(str){
+	var a=[];
+for (var i=0; i<str.length; i++){
+
+	a.push(changeoneletter(str[i]));}
+return a;
+}
+   //replace("axyzb");
+// ["b", "y", "z", "a", "c"] 	
+
+var a="a";
+//a.charCodeAt(0);
+// 97
+string.fromCharCode(97);
+//"a"
+string.fromCharCode(97);
+//"a"
+string.fromCharCode(a.charCodeAt(0)+1);
+//"b"
+
+function dup(num){
+var dup=[];
+for (var i=0; i<num.length; i++){
+for (var j=i+1; j<num.length; j++){
+ if(num[i]==num[j]){
+dup.push(num[j]);
+}
+}
+}
+return dup;
+}
+
+
+//
+function longestString(arr){
+	var long1='';
+  for (i=0; i<arr.length; i++){
+      if (arr[i].length > long1.length){
+        long1.length= arr[i].length;
+      }
+
+  }
+  return long1;
+}
+
+function longestword(str){
+	var strsplit=str.split(" ");
+	var longestword=0;
+	for(var i=0; i<strsplit.length; i++){
+		if (strsplit[i].length>longestword){
+			longestword=strsplit[i].length;
+		}
+		
+	}
+	var result=strsplit[longestword];
+     result;
+	}  
+	
+	//
+
+function largestOfFour(arr) {
+   var largestNumber = [0,0,0,0];
+   for(var arrayIndex = 0; arrayIndex < arr.length; arrayIndex++) {
+    for(var subArrayIndex = 0; subArrayIndex < arr[arrayIndex].length; subArrayIndex++) {
+       if(arr[arrayIndex][subArrayIndex] > largestNumber[arrayIndex]) {         
+          largestNumber[arrayIndex] = arr[arrayIndex][subArrayIndex];
+        }
+    }
+ }
+ return largestNumber;
+}
+   
+// largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);//
+
+function big(num){
+var big=0;
+for (var i=0; i<num.length; i++){
+ if(num[i]>big){
+big=num[i];
+}
+}
+
+return big;
+}
+
+//big([2,4,5,9,1,4,0,2]);
+9// 
+
+
+	
+function longestw(arr){
+	var re1=0;
+	
+	for (var i=0; i<arr.length; i++){
+		if (arr[i].length>re1){
+			re1=arr[i].length;
+		}
+	}
+		 
+	return re1; 
+}
+
+
+// longestw(["i","liking", "reading", "a", "book"]);
+7// 
+
+function getvalue(arr,index){
+	 
+	return arr[index];
+	}
+//getvalue(["i", "liking", "reading", "a", "book"],2);
+"reading"// 
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

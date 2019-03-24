@@ -1,0 +1,42 @@
+<html>
+
+
+<head>
+    <script type="text/javascript">
+        function a () {
+            alert ("You clicked on the button!");
+        }
+        
+        
+        
+        function b(id) {
+
+    		var a = "<table>";
+
+    		a += "<tr>";
+
+    		a += "<td><input type='text' id='addevent'></td></tr>";
+
+    		a += "<tr>";
+    		a += "<td><button value='createevent' id='createevent' onclick=createEvents('"
+    				+ id + "')>Create event</button></td>";
+
+    		a += "<td><button value='editevent' id='editevent' onclick=editEvents('"
+    				+ id + "')>Edit event</button></td>";
+    		a += "</tr>";
+
+    		a += "</table>";
+    		document.getElementById("display").innerHTML = a;
+    	}
+        
+        function c(){
+        	
+        	document.getElementById("display").innerHTML ="";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="c ()">Click on me!</button>
+    <div id="display"></div>
+</body>
+</html>

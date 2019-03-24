@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="jasmine-1.3.1/jasmine.css">
+<script type="text/javascript" src="jasmine-1.3.1/jasmine.js">
+</script>
+<script type="text/javascript" src="jasmine-1.3.1/jasmine-html.js">
+</script>
+
+
+<style>
+.class {
+	color: pink;
+}
+
+.class div {
+	color: blue;
+}
+
+.class1 {
+	color: red;
+}
+
+.class1 div {
+	color: yellow;
+}
+.class2 {color: green;
+}
+</style>
+<script>
+
+describe("color", function() {
+	  it("contains spec with an expectation", function() {
+	    expect(true).toBe(true);
+	  });
+	});
+	
+
+
+</script>
+</head>
+<body>
+	<div class="class">A</div>
+	<div class="class">
+		B
+		<div>b</div>
+	</div>
+
+	<div class="class1">
+		C
+		<div>c</div>
+	</div>
+
+	<div class="class2">
+		D
+		<div>children 1</div>
+		<div>children 2</div>
+	</div>
+	
+
+</body>
+</html>

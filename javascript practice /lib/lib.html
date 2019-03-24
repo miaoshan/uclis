@@ -1,0 +1,99 @@
+<html>
+<head>
+<style>
+table, th, td {
+border: 2px solid gray;}
+
+table.bottomBorder{
+
+border-collapse: collapse;}
+
+table.bottomBorder td, table.bottomBorder th{
+
+border-bottom: 1px solid pink;}
+
+</style>
+<script>
+var a=new Array();
+function addBook() {
+    a.push(document.getElementById("bvc").value);
+	a.push(document.getElementById("keyword").value);
+	a.push(document.getElementById("location").value);
+	clear();
+}
+function clear() {
+	document.getElementById("bvc").value = "";
+	document.getElementById("keyword").value = "";
+	document.getElementById("location").value ="";
+}
+function displayBookInfo(){
+	document.writeln('<table border=1>');
+	document.writeln('<tr><th>BookTitle</th>');
+	document.writeln('<th>KeyWord</th>');
+	document.writeln('<th>Location</th></tr>');
+	for(var i=0; i<a.length; i+=3){
+		document.writeln('<tr><td>' + a[i] +'</td>');
+		document.writeln('<td>' + a[i+1] +'</td>');
+		document.writeln('<td>' + a[i+2] +'</td></tr>');
+
+	}
+	document.writeln('</table>');
+	
+}
+
+function search(){
+	var x= document.getElementById("bvc").value;
+	var y= document.getElementById("keyword").value;
+	var z= document.getElementById("location").value;
+	
+	document.writeln('<table border=1>');
+	document.writeln('<tr><th>BookTitle</th>');
+	document.writeln('<th>KeyWord</th>');
+	document.writeln('<th>Location</th></tr>');
+	for(var i=0; i<a.length; i+=3){
+		if(x==a[i] || y==a[i+1] || z==a[i+2]){
+		document.writeln('<tr><td>' + a[i] +'</td>');
+		document.writeln('<td>' + a[i+1] +'</td>');
+		document.writeln('<td>' + a[i+2] +'</td></tr>');
+		}
+	}
+	document.writeln('</table>');
+
+}
+
+
+
+
+
+	
+
+</script>
+</head>
+<body>
+
+Booktitle:<input type="text" name="booktitle" id="bvc"><br>
+ <br>
+Keyword:<input type="text" name="keyword" id="keyword"><br>
+<br>
+Location:<input type="text" name="location" id="location"><br>
+<h4>
+<a href="javascript:search()">Search</a>
+</h4>
+<h4>
+<a href="javascript:addBook()">Add New Book</a>
+</h4>
+<h4>
+<a href="javascript:displayBookInfo()">Show All Books</a>
+</h4>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

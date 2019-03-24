@@ -1,0 +1,103 @@
+<html>
+<head>
+<style>
+table,th,td {
+	border: 1px solid pink;
+}
+</style>
+<script>
+var input= new Object;
+
+function clickEventField(e){
+	if(event.target.className=="validInput"){
+		
+		displayInputField(event.target.id);
+	}
+	
+}
+
+function displayInputField(id){
+	
+	var a="<table>";
+	a+="<tr><td><input type='text' id='addevent'></td></tr>";
+	a+="<tr><td><button value='createevent' id='createevent' onclick=createEvent('" + id + "')>create event</button></td></tr>";
+	a+="<tr><td><button value='editevent' id='editevent' onclick=editEvent('" + id + "')>edit event</button></td></tr>";
+	a+="</table>";
+	
+	document.getElementById("display").innerHTML=a;
+}
+
+function createEvent(id){
+	input[id]=document.getElementById("addevent").value;
+	
+	displayEvent(document, input);
+	
+}
+
+function displayEvent(document, input){
+	for(var i=0; i<)
+	
+}
+
+
+
+
+</script>
+</head>
+<body>
+<table onclick="clickEventField(event)">
+<tr>
+<th>time</th>
+<th>Mon</th>
+<th>Tue</th>
+<th>Wed</th>
+<th>Thu</th>
+<th>Fri</th>
+<th>Sat</th>
+<th>Sun</th>
+</tr>
+
+<tr>
+<td>09am</td>
+<td class=validInput id="event1">09am</td>
+<td class=validInput id="event2">09am</td>
+<td class=validInput id="event3">09am</td>
+<td class=validInput id="event4">09am</td>
+<td class=validInput id="event5">09am</td>
+<td class=validInput id="event6">09am</td>
+<td class=validInput id="event7">09am</td>
+</tr>
+<tr>
+<td>10am</td>
+<td class=validInput id="event8">10am</td>
+<td class=validInput id="event9">10am</td>
+<td class=validInput id="event10">10am</td>
+<td class=validInput id="event11">10am</td>
+<td class=validInput id="event12">10am</td>
+<td class=validInput id="event13">10am</td>
+<td class=validInput id="event14">10am</td>
+</tr>
+<tr>
+<td>11am</td>
+<td class=validInput id="event15">11am</td>
+<td class=validInput id="event16">11am</td>
+<td class=validInput id="event17">11am</td>
+<td class=validInput id="event18">11am</td>
+<td class=validInput id="event19">11am</td>
+<td class=validInput id="event20">11am</td>
+<td class=validInput id="event21">11am</td>
+</tr>
+<tr>
+<td>12am</td>
+<td class=validInput id="event22">12am</td>
+<td class=validInput id="event23">12am</td>
+<td class=validInput id="event24">12am</td>
+<td class=validInput id="event25">12am</td>
+<td class=validInput id="event26">12am</td>
+<td class=validInput id="event27">12am</td>
+<td class=validInput id="event28">12am</td>
+</tr>
+</table>
+<div id="display"></div>
+</body>
+</html>

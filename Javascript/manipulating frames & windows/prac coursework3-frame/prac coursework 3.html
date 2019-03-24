@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>My TODO List Generator</title>
+<script type="text/javascript">
+<!-- /* Hide content from old browsers */
+   var taskList = new Array();
+   var TOTAL_TASK_LIMIT = 10;		// Maximum number of tasks
+   
+
+   parent.taskDisplayFrame.location = 'CW3content.html';
+   
+
+   function addTask() {
+       var index = taskList.length;
+       if (index < TOTAL_TASK_LIMIT) {
+		// TO BE COMPLETED: Complete this if statement block
+		
+       } 
+       else {
+           alert('Sorry - no more than 10 tasks allowed.');
+       }
+   }
+
+   function displayTasks() {
+		// TO BE COMPLETED
+
+   }
+
+   function displayHighPriorityTasks() {
+		// TO BE COMPLETED
+
+   }
+   // Display the current time
+   function startTime()
+   {
+     var today = new Date();
+     var h = today.getHours();
+     var m = today.getMinutes();
+     var s = today.getSeconds();
+     // add a zero in front of numbers<10
+     m = checkTime(m);
+     s = checkTime(s);
+     document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+     t=setTimeout(startTime,1000);
+   }
+
+   // Add 0 in front of single-digit letters
+   function checkTime(i)
+   {
+     if (i<10) {
+       i="0" + i;
+     }
+     return i;
+   }
+   
+// end hiding content from old browsers  -->
+</script>
+</head>
+
+<body onload="startTime()">
+<center>
+<div id="txt"></div>
+
+<h1>Add and Display Tasks</h1>
+<form action="none" name="eForm">
+<font size="+2">Task:</font> 
+<input type="text" name="taskbox" size="30" maxlength="40" /><br /><br />
+<font size="+2">Priority:</font> 
+<input type="radio" name="priority" checked="checked">High
+<input type="radio" name="priority">Medium
+<input type="radio" name="priority">Low<br>
+<h3><a href="javascript:addTask()">Add New Task</a></h3>
+<h3><a href="javascript:displayTasks()">Display All Tasks</a></h3>
+<h3><a href="javascript:displayHighPriorityTasks()">Display High Priority Tasks Only</a></h3>
+
+</form>
+</center>
+</body>
+</html>

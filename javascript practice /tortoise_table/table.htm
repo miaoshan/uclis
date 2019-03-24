@@ -1,0 +1,26 @@
+<html>
+<head>
+<script>
+var x=6;
+var y=3;
+var z=1;
+var my_table= "<table border=1>";
+for (var i=0; i<=9; i++){
+    my_table+= "<tr>";
+
+    for (var j=0; j<=9; j++){
+        if(i==x && j==y){
+            my_table+="<td>" + "*"+ "</td>";
+        }
+        else{
+            my_table+="<td>" + "_</td>";
+
+        }
+    }
+    my_table+="</tr>";
+}
+my_table+="</table>";
+
+document.write(my_table);
+</script>
+</head>

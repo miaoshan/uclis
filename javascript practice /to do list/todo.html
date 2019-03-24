@@ -1,0 +1,61 @@
+<html>
+<head>
+<script>
+	var a = new Array();
+	function addTask() {
+		a.push(document.getElementById("newtask").value);
+		for ( var i = 0; i < a.length; i++) {
+			
+			document.writeln("<table>");
+			document.writeln("<tr>");
+			document.writeln("<td><h2>To do list</h2></td>");
+			document.writeln("<td><input type='text' id='newtask'></td>");
+			document.writeln("<td><button value='addtask'>add</button></td>");
+			document.writeln("<td><br></td>");
+			document.writeln("<td>" + a[i] + "</td>");
+			document
+					.writeln("<td><button value='edit task' id='edittask' onclick='editTask()'>Edit</button></td>");
+			document
+					.writeln("<td><button value='delete task' id='deletetask' onclick='deleteTask()'>Delete</button></td>");
+
+			document.writeln("</tr>");
+		}
+			document.writeln("</table>");
+		
+	}
+
+	function editTask() {
+		a.push(document.getElementById("newtask").value);
+		clear();
+
+	}
+
+	function deleteTask() {
+		a.push(document.getElementById("newtask").value);
+
+	}
+	
+	var myToDoList =new Array();
+	function addItem (){
+		myToDoList.push(document.getElementById("newitem").value);
+		for (var i=0; i<myToDoList.length; i++ ){
+			
+			document.writeln("<table>");
+			document.writeln("<tr>");
+			document.writeln("<th>to do list</th>");
+			
+			
+		}
+		
+		
+	}
+</script>
+</head>
+<body>
+	<h2>To do list</h2>
+	<input type="text" name="todotask" id="newtask">
+	<button value="add task" id="addtask" onclick="addTask()">add</button>
+	
+
+</body>
+</html>

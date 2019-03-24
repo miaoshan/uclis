@@ -1,0 +1,180 @@
+<html>
+<head>
+<style>
+#emotion option[value="happy"] {
+	background-image: url('happy.jpeg');
+}
+
+#emotion option[value="unhappy"] {
+	background-image: url('unhappy.jpeg');
+}
+
+#emotion option[value="shy"] {
+	background-image: url('shy.jpeg');
+}
+
+#emotion option[value="afraid"] {
+	background-image: url('afraid.jpeg');
+}
+</style>
+
+<script>
+	var items = new Array();
+
+	function addItem() {
+		var item = new Object();
+		var time = new Date();
+		items.push(item);
+		item["emotion"] = document.getElementById("emotion").value;
+		item["text"] = document.getElementById("input").value;
+		item["time"] = time;
+		var x = document.getElementById("checkbox");
+		if (x.checked == true) {
+			item["checkbox"] = true;
+		} else {
+			item["checkbox"] = false;
+		}
+
+		displayItems();
+
+		clear();
+	}
+
+	function displayItems(z) {
+
+		var a = "<table>";
+
+		for ( var i = 0; i < items.length; i++) {
+
+			if (i != z) {
+
+				a += "<tr>";
+				a += "<td>";
+				a += "<img src=";
+				var item = items[i];
+				var emotion = item["emotion"];
+				if (emotion == "happy") {
+					a += "'happy.jpeg'/>";
+				} else if (emotion == "unhappy") {
+					a += "'unhappy.jpeg'/>";
+				} else if (emotion == "shy") {
+					a += "'shy.jpeg'/>";
+				} else {
+					a += "'afraid.jpeg'/>";
+				}
+				a += "</td>";
+				a += "<td>" + item["text"] + "</td>";
+				a += "<td>" + item["time"] + "</td>";
+				if (item["checkbox"] == true) {
+					a += "<td>checked</td>";
+				} else {
+					a += "<td>unchecked</td>";
+				}
+				a += "<td><button id='edititem' onclick=editItem(" + i
+						+ ")>edit</button></td>";
+				a += "<td><button id='deleteitem' onclick=deleteItem(" + i
+						+ ")>delete</button></td>";
+
+				a += "</tr>";
+			}
+		}
+		a += "</table>";
+		document.getElementById("displayitem").innerHTML = a;
+	}
+
+	function clear() {
+
+		document.getElementById("input").value = "";
+	}
+
+	function deleteItem(i) {
+
+		items.splice(i, 1);
+
+		document.getElementById("displayedit").innerHTML = "";
+
+		displayItems();
+	}
+
+	function editItem(x) {
+		var b = "<table>";
+
+		b += "<tr>";
+
+		b += "<tr><th>emotions</th>";
+		b += "<th>to do list</th>";
+		b += "<th>time</th>";
+		b += "<th>checkbox</th></tr>";
+		var item = items[x];
+		var emotion = item["emotion"];
+		var text = item["text"];
+		var time = item["time"];
+		var checkbox = item["checkbox"];
+		b += "<tr>";
+		b += "<td><select id='selectemotion' value="+emotion+"><option value='happy'>happy</option>";
+		b += "<option value='unhappy'>unhappy</option><option value='shy'>shy</option><option value='afraid'>afraid</option></td>";
+		b += "<td><input type='text' id='preitem'value="+text+"></td>";
+		b += "<td>" + time + "</td>";
+		b += "<td><select id='selectecheck' value="+checkbox+"><option value='checked'>checked</option>";
+		b += "<option value='unchecked'>unchecked</option></td>";
+		b += "<td><button id='saveitem' onclick=saveItem(" + x
+				+ ")>save</button></td>";
+
+		b += "<td><button id='deleteitem' onclick=deleteItem(" + x
+				+ ")>delete</button></td>";
+
+		b += "</tr>";
+
+		b += "</table>";
+		document.getElementById("displayedit").innerHTML = b;
+
+		displayItems(x);
+
+	}
+
+	function saveItem(y) {
+
+	}
+
+	
+
+	
+</script>
+</head>
+<body>
+	<h2>to do list w mood</h2>
+	emotions
+	<select id="emotion">
+		<option value="happy" id="happy">happy</option>
+		<option value="unhappy" id="unhappy">unhappy</option>
+		<option value="shy" id="shy">shy</option>
+		<option value="afraid" id="afraid">afraid</option>
+	</select>
+	<br>
+
+	<br>to do list
+	<input type="text" name="input" id="input">
+	<br>
+
+	<br>checkbox
+	<input type="checkbox" id="checkbox">
+	<br>
+
+	<br>
+	<button value="additem" id="additem" onclick="addItem()">add</button>
+	<br>
+
+
+	<div id="displayedit"></div>
+	<div id="displayitem"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
